@@ -1,0 +1,18 @@
+
+button {
+	padding: 0.5em;
+}
+.btn {/*Make an element with the class="btn" attribute look like a button*/
+	background-color: #4CAF50;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #4caf50;
+    cursor: pointer;
+	text-decoration: none;
+}
+.btn:hover, .btn:focus {
+    background-color: #ffffff;
+	color: #4CAF50;
+	
+}
