@@ -1,8 +1,8 @@
 
-button {
+button { /* Make big buttons */
 	padding: 0.5em;
 }
-.btn {/*Make an element with the class="btn" attribute look like a button*/
+.btn {/* Make an element with the class="btn" attribute look like a button */
 	background-color: #4CAF50;
     color: white;
     padding: 5px;
@@ -10,6 +10,7 @@ button {
     border: 1px solid #4caf50;
     cursor: pointer;
 	text-decoration: none;
+	
 }
 .btn:hover, .btn:focus {
     background-color: #ffffff;
