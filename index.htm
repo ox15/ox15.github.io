@@ -5,15 +5,42 @@
 		<link rel="stylesheet" type="text/css" href="style.css" />
         <script src="jquery-3.1.0.min.js"></script>
 		<style>
-		h1 {
-			text-decoration: underline;
-		}
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            left: 105%;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
 		</style>
-		<title>Home</title>
+        <script src="translate.js"></script>
+        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<title>My Pages</title>
 	</head>
 	<body>
-		<a target="_blank" href="../help" class="btn" style="float:right">?</a>
-		<h1><a href="map.html">My Pages</a></h1> <!--Title-->
+        <div id="google_translate_element"></div>
+
+		<div class="tooltip">
+            <h1><a href="map.html">My Pages</a></h1>
+            <span class="tooltiptext">Click to go to the site map</span>
+        </div><br>
+        <a target="_blank" href="../help" class="btn" style="float:right" alt="help">?</a>
 		<a target="_blank" href="../jokes" class="btn">Jokes</a><br/><br/>
 		<a target="_blank" href="../how2">How to use your applications</a>
 		<br/>
@@ -70,10 +97,8 @@
 		</table>
 		<br><div>¿Está cansado de escuchar la misma estación de radio aburrida? ¿Vive en Honduras? Escucha a Estéreo Luz, 103.7 FM. ¿Habla usted inglés? Hay canciones en inglés de 7 p.m. a 8 p.m. Si escucha VerticalFM (100.9), las canciones están en inglés y español durante todo el día.</div><br><br>
 
-        <a href="map.htm" class="btn">Site map</a>
+        <a href="map.html" class="btn">Site map</a>
         <a href="https://goo.gl/LDFd0I" class="btn" id="link">Short link</a>
-	</body>
-    <script type="text/javascript">
 
-    </script>
+    </body>
 </html>
