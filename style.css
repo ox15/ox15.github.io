@@ -2,7 +2,7 @@
 button { /* Make big buttons */
 	padding: 0.5em;
 }
-.btn {/* Make an element with the class="btn" attribute look like a button */
+.btn, nav a {/* Make an element with the class="btn" attribute look like a button */
 	background-color: #4CAF50;
     color: white;
     padding: 5px;
@@ -12,8 +12,22 @@ button { /* Make big buttons */
 	text-decoration: none;
 	
 }
-.btn:hover, .btn:focus {
+
+.btn:hover, .btn:focus, nav a:hover, nav a:focus {
     background-color: #ffffff;
 	color: #4CAF50;
-	
+}
+
+nav ul {
+	list-style-type: none;
+}
+
+nav ul li { 
+  float: left;
+  margin-right: 0.5em;
+  margin-bottom: 1.0em;
+}
+
+main {
+	clear: left;
 }
