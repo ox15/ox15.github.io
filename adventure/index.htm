@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>			
+    <meta name="viewport" content="width=device-width"/>
+    <title>Choose your own adventure</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script src="jquery-3.1.0.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <a class="btn" href="../" style="float:right;">Home</a>
+    <button id="info" style="float:right" >?</button>
+    <div class="stories">
+        <!--This is the dropdown-->
+        <button id="selectStory" class="dropbtn">Select a story</button>
+        <span id="error" hidden></span>
+        <ul id="storyDropdown" class="dropdown-content">
+            <!--This holds the dropdown links-->
+            <li><a href="#" onclick="loadStory('gideon.json')">Gideon</a></li>
+            <li><a href="#" onclick="loadStory('DavidGoliath.json')">David and Goliath</a></li>
+            <li><a href="#" onclick="loadStory('jonah.json')">Jonah</a></li>
+        </ul>
+    </div>
+    <div id="infotext" hidden>
+        <p>The console tells you what you clicked and when. To open it, press F12. Mac users, use the key combination that corresponds to the browser you're using.
+        <table style="width:50%">
+            <tr>
+                <th>Chrome</th>
+                <th>Firefox</th>
+                <th>Safari</th>
+            </tr>
+            <tr>
+                <td>CMD-Option-J</td>
+                <td>CMD-Shift-J</td>
+                <td>CMD-Option-C</td>
+            </tr>
+        </table>
+        <p>The <span style="color:green;text-decoration:bold">green</span> button is what actually happened.</p><br>
+    </div>
+    <div id="btnHolder">
+        <!--Buttons-->
+        <button id="btn0" hidden>Choice 1</button>
+        <button id="btn1" hidden>Choice 2</button>
+        <button id="btn2" hidden>Choice 3</button>
+        <button id="btn3" hidden>Choice 4</button>
+        <button id="reload" hidden>Start again</button>
+    </div>
+    <ul id="log"></ul>
+</body>
+</html>
