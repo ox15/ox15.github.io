@@ -11,6 +11,7 @@
     "id" : 2,
 	"decr" : "You go home and the Midianites destroy your crops.  :(",
     "links" : []
+    "win":false
 }, {
     "id" : 3,
 	"decr" : "You ask God for another sign-the reverse of what happened last night. It works. Do you do it (1) or are you stil a chicken? (2)",
@@ -39,6 +40,7 @@
     "id" : 9,
 	"decr" : "You go with God's plan and get the crazy weapons. Your army runs into the Midianite camp, smashes the jars and blows the trumpets. The Midianites start to kill each other! It's chaos. Then reinforcements arrive and kill their leading princes! You win!!",
     "links" : []
+    "win":true
 }, {
     "id" : 10,
 	"decr" : "You get regular weapons, but things aren't looking so good. It's impossible to kill them! After a while, you give up.",

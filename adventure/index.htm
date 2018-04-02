@@ -7,18 +7,23 @@
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script src="jquery-3.1.0.min.js"></script>
     <script src="script.js"></script>
+    <script src="../translate.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-    <a class="btn" href="../" style="float:right;">Home</a>
-    <button id="info" style="float:right" >?</button>
+    <div style="float:right">
+        <div id="google_translate_element"></div>
+        <a class="btn" href="../">Home</a>
+        <button id="info">?</button>
+    </div>
     <div class="stories">
         <!--This is the dropdown-->
         <button id="selectStory" class="dropbtn">Select a story</button>
         <span id="error" hidden></span>
         <ul id="storyDropdown" class="dropdown-content">
             <!--This holds the dropdown links-->
-            <li><a href="#" onclick="loadStory('gideon.json')">Gideon</a></li>
-            <li><a href="#" onclick="loadStory('DavidGoliath.json')">David and Goliath</a></li>
+            <li><a href="#" onclick="loadStory('gideon.json')">Jonah</a></li>
+            <li><a href="#" onclick="loadStory('DavidGoliath.json')">David Goliath</a></li>
             <li><a href="#" onclick="loadStory('jonah.json')">Jonah</a></li>
         </ul>
     </div>

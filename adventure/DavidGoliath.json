@@ -11,6 +11,7 @@
     "id" : 2,
     "decr" : "You go back home and your side loses",
     "links" : []
+    "win":false
 }, {
     "id" : 3,
     "decr" : "Saul's armor doesn't fit.  You take it off.",
@@ -19,5 +20,6 @@
     "id" : 4,
     "decr" : "You fight Goliath and win.",
     "links" : []
+    "win":true
 }
 ]

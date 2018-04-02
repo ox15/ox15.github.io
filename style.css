@@ -1,3 +1,4 @@
+body{font-family:sans-serif}
 .btn, nav a {/* Make an element with the class="btn" attribute look like a button */
 	background-color: #4CAF50;
     border: 1px solid #4caf50;
@@ -24,15 +25,25 @@ main {
 button {
 	padding: 0.5em;
 }
+#log li {
+    border: 1px solid gray;
+    font-weight: bolder;
+    border-radius: 6px;
+    padding: 10px;
+    list-style: lower-greek;
+}
+.inactive {
+    background-color: white;
+    color: gray; 
+}
 .active {
   background-color: #e6ffe6;
   color: green;
-  font-weight: bolder;
+  border: 1px solid #4caf50;
 }
 .win {
   background-color: green;
   color: yellow;
-  font-weight: bolder;
 }
 .lose {
   background-color: black;
@@ -51,7 +62,7 @@ button {
   border: 1px solid #4caf50;
   color: white;
   font-size: 16px;
-  padding: 16px;    
+  padding: 0.5em;    
 }
 /* The container div - needed to position the dropdown content */
 .dropdown {
@@ -74,14 +85,13 @@ button {
     list-style-type: none;
     padding:0.3em;
 }
-.dropdown-content li:hover {
-    border: 1px solid black; 
-}
 /* Links inside the dropdown */
 .dropdown-content a {
     color: white;
     text-decoration: none;
 }
+.dropdown-content a:hover{border: 1px solid black}
+
 .show {display:list-item;} /* NEEDS this to show the menu correctly */
 #error {
     color: red;
@@ -106,4 +116,7 @@ button {
 }
 .tooltip:hover .tooltiptext {
     visibility: visible;
+}
+#btnHolder {
+    display: none
 }

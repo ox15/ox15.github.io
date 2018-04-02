@@ -1,22 +1,22 @@
 
-var storyVersion = 5; // Tells the client cache when to refresh stories
+var storyVersion = 6; // Tells the client cache when to refresh stories
 var started = false;
 var data = [{
     "id" : 0,
-    "decr" : "Please select a story from the dropdown.",
+    "decr" : "Select a story from the dropdown",
     "links" : []
 }];
 var choiceCount = 0;
 function update(link, buttonPressed) {
-    'use strict';
     choiceCount++;
     if (buttonPressed) {
-        console.log(choiceCount + ") You chose choice " + buttonPressed + ", which linked to event " + link);
+        console.info(choiceCount + ") You chose choice " + buttonPressed + ", which linked to event " + link);
     } else {
         console.log(choiceCount + ") Loading choice " + link);
     }
     $("#log").prepend("<li hidden>" + data[link].decr + "</li>");
-    $("#log li").removeClass("active");//Make the last one gray
+    $("#log li").removeClass("active");
+    $("#log li").addClass("inactive");//Make the last one gray
     $("#log li:first-child").addClass("active").slideDown("slow");
     //Hide all buttons
     $("#btn0").prop('hidden', true);
@@ -25,7 +25,7 @@ function update(link, buttonPressed) {
     $("#btn3").prop('hidden', true);
     $("#reload").prop('hidden', true);
     var hasLinks = false;
-    for (i = 0; i < data[link].links.length; i++) {
+    for (var i = 0; i < data[link].links.length; i++) {
         //console.log("  i:"+i);
         $("#btn" + i).data("link", data[link].links[i]);
         $("#btn" + i).prop('hidden', false);
@@ -49,6 +49,7 @@ $(document).ready(function () {//Manage buttons
     $("#btn1").prop('hidden', true);
     $("#btn2").prop('hidden', true);
     $("#btn3").prop('hidden', true);
+    $("#reload").prop('hidden', true);
     console.log("Please select a story from the dropdown.");
     $("#btn0").click(function () {//update 1
         var link = $("#btn0").data("link");
@@ -69,10 +70,14 @@ $(document).ready(function () {//Manage buttons
     $("#reload").click(function () {//activate the reload button
         $("#log").html("");
         update(0);
+        console.clear();
     });
+    
+    
     $("#info").click(function () {//show info
         $("#infotext").fadeToggle();
     });
+    
     $("#selectStory").click(function () {//show info
         storyDropdownFunction();
     });
@@ -82,6 +87,7 @@ $(document).ready(function () {//Manage buttons
             $(".dropdown-content").removeClass('show');
         }
     };
+    
 });
 // Dropdown menus
 /** When the user clicks on the button, 
@@ -91,14 +97,12 @@ function storyDropdownFunction() {
     document.getElementById("storyDropdown").classList.toggle("show");
 }
 function loadStory(filename) {
-    'use strict';
     $.getJSON(filename + "?version=" + storyVersion, function (json) {
         data = json;
         update(0);
         $("#error").fadeOut();
     })
         .fail(function () {
-            console.log("No such story exists: " + filename);
             $("#error").text("Error on " + filename + ". Check the console (press F12) for more information.");
             $("#error").fadeIn();
         });
