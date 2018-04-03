@@ -10,7 +10,7 @@
 }, {
     "id" : 2,
     "decr" : "You go back home and your side loses",
-    "links" : []
+    "links" : [],
     "win":false
 }, {
     "id" : 3,
@@ -19,7 +19,7 @@
 }, {
     "id" : 4,
     "decr" : "You fight Goliath and win.",
-    "links" : []
+    "links" : [],
     "win":true
 }
 ]

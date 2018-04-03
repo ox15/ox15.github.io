@@ -30,7 +30,7 @@ button {
     font-weight: bolder;
     border-radius: 6px;
     padding: 10px;
-    list-style: lower-greek;
+    list-style: none;
 }
 .inactive {
     background-color: white;
@@ -117,6 +117,4 @@ button {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
-#btnHolder {
-    display: none
-}
+

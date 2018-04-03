@@ -25,7 +25,7 @@ function update(link, buttonPressed) {
     $("#btn3").prop('hidden', true);
     $("#reload").prop('hidden', true);
     var hasLinks = false;
-    for (var i = 0; i < data[link].links.length; i++) {
+    for (i = 0; i < data[link].links.length; i++) {
         //console.log("  i:"+i);
         $("#btn" + i).data("link", data[link].links[i]);
         $("#btn" + i).prop('hidden', false);
