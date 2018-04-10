@@ -14,11 +14,11 @@
     "win":false
 }, {
     "id" : 3,
-	"decr" : "You ask God for another sign-the reverse of what happened last night. It works. Do you do it (1) or are you stil a chicken? (2)",
+	"decr" : "You ask God for another sign-the reverse of what happened last night. It works. Do you do it (1) or are you still a chicken? (2)",
     "links" : [4,2]
 }, {
     "id" : 4,
-	"decr" : "You assemble your army of 32,000 men, but God says that's too many. 10,000 go home. Then, another test: Whoever cupped their hands and drank wate that way goes to fight, but whoever kneels down goes back home. To make them go home, press 1. To make them stay, press 2.",
+	"decr" : "You assemble your army of 32,000 men, but God says that's too many. 10,000 go home. Then, another test: Whoever cupped their hands and drank water that way goes to fight, but whoever kneels down goes back home. To make them go home, press 1. To make them stay, press 2.",
     "links" : [5,8]
 }, {
     "id" : 5,

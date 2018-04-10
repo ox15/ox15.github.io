@@ -5,7 +5,7 @@
      "links" : [1,2]
 }, {
     "id" : 1,
-    "decr" : "King Saul finds you and asks you to try on his armor. Do it (1) or get your own stuff (2)",
+    "decr" : "King Saul finds you and asks you to try on his armor. Do it (1) or get your own stuff (2).",
     "links" : [3,4]
 }, {
     "id" : 2,
