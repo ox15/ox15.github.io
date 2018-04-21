@@ -6,20 +6,20 @@ $(document).ready(function(){
 	$(".normal5").hide();
 	
     $(".closeup").click(function(){
-        $(".normal").fadeIn(1000);
+        $(".normal").fadeToggle(1000);
     });
 	
 	$(".closeup2").click(function(){
-        $(".normal2").fadeIn(1000);
+        $(".normal2").fadeToggle(1000);
 	});
 	
 	$(".closeup3").click(function(){
-        $(".normal3").fadeIn(1000);
+        $(".normal3").fadeToggle(1000);
 	});
 	$(".closeup4").click(function(){
-        $(".normal4").fadeIn(1000);
+        $(".normal4").fadeToggle(1000);
 	});
 	$(".closeup5").click(function(){
-        $(".normal5").fadeIn(1000);
+        $(".normal5").fadeToggle(1000);
 	});
 });
