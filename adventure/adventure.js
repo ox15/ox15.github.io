@@ -99,7 +99,9 @@ function storyDropdownFunction() {
 function loadStory(filename) {
     $.getJSON(filename + "?version=" + storyVersion, function (json) {
         data = json;
+        $("#log").html("");
         update(0);
+        console.clear();
         $("#error").fadeOut();
     })
         .fail(function () {
