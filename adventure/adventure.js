@@ -10,9 +10,9 @@ var choiceCount = 0;
 function update(link, buttonPressed) {
     choiceCount++;
     if (buttonPressed) {
-        console.info(choiceCount + ") You chose choice " + buttonPressed + ", which linked to event " + link);
+        console.info(choiceCount-1 + ") You chose choice " + buttonPressed + ", which linked to event " + link);
     } else {
-        console.log(choiceCount + ") Loading choice " + link);
+        console.log(choiceCount-1 + ") Loading choice " + link);
     }
     $("#log").prepend("<li hidden>" + data[link].decr + "</li>");
     $("#log li").removeClass("active");
@@ -23,7 +23,7 @@ function update(link, buttonPressed) {
     $("#btn1").prop('hidden', true);
     $("#btn2").prop('hidden', true);
     $("#btn3").prop('hidden', true);
-    $("#reload").prop('hidden', true);
+    //$("#reload").prop('hidden', true);
     var hasLinks = false;
     for (i = 0; i < data[link].links.length; i++) {
         //console.log("  i:"+i);
@@ -31,16 +31,17 @@ function update(link, buttonPressed) {
         $("#btn" + i).prop('hidden', false);
         hasLinks = true;
     }
-    if (!hasLinks) {//When you're done, show the reload button
-        $("#reload").prop('hidden', false);
-        if (data[link].win === true) {
-            console.log("You won!");
-            $("#log li:first-child").addClass("win");
-        }
-        if (data[link].win === false) {
-            console.log("You lost!");
-            $("#log li:first-child").addClass("lose");
-        }
+    if (data[link].change === true) {
+        console.log("Change to somebody else");
+        $("#log li:first-child").addClass("change");
+    }
+    if (data[link].win === true) {
+        console.log("You won!");
+        $("#log li:first-child").addClass("win");
+    }
+    if (data[link].win === false) {
+        console.log("You lost!");
+        $("#log li:first-child").addClass("lose");
     }
 }
 $(document).ready(function () {//Manage buttons
@@ -49,7 +50,6 @@ $(document).ready(function () {//Manage buttons
     $("#btn1").prop('hidden', true);
     $("#btn2").prop('hidden', true);
     $("#btn3").prop('hidden', true);
-    $("#reload").prop('hidden', true);
     console.log("Please select a story from the dropdown.");
     $("#btn0").click(function () {//update 1
         var link = $("#btn0").data("link");
@@ -72,13 +72,13 @@ $(document).ready(function () {//Manage buttons
         update(0);
         console.clear();
     });
-    
-    
+
+
     $("#info").click(function () {//show info
         $("#infotext").fadeToggle();
     });
-    
-    $("#selectStory").click(function () {//show info
+
+    $("#selectStory").click(function () {
         storyDropdownFunction();
     });
     // Close the dropdown menu if the user clicks outside of it
@@ -87,7 +87,7 @@ $(document).ready(function () {//Manage buttons
             $(".dropdown-content").removeClass('show');
         }
     };
-    
+
 });
 // Dropdown menus
 /** When the user clicks on the button, 
@@ -97,15 +97,17 @@ function storyDropdownFunction() {
     document.getElementById("storyDropdown").classList.toggle("show");
 }
 function loadStory(filename) {
+    choiceCount=0;
     $.getJSON(filename + "?version=" + storyVersion, function (json) {
         data = json;
         $("#log").html("");
         update(0);
         console.clear();
+        console.log(filename);
         $("#error").fadeOut();
     })
         .fail(function () {
-            $("#error").text("Error on " + filename + ". Check the console (press F12) for more information.");
-            $("#error").fadeIn();
-        });
+        $("#error").text("Error on " + filename + ". Check the console (press F12) for more information.");
+        $("#error").fadeIn();
+    });
 }
