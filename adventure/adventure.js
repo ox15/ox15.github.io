@@ -1,36 +1,37 @@
 
-var storyVersion = 6; // Tells the client cache when to refresh stories
+var storyVersion = 7; // Tells the client cache when to refresh stories
 var started = false;
 var data = [{
     "id" : 0,
-    "decr" : "Select a story from the dropdown",
+    "content" : "Select a story from the dropdown",
     "links" : []
 }];
 var choiceCount = 0;
 function update(link, buttonPressed) {
     choiceCount++;
     if (buttonPressed) {
-        console.info(choiceCount-1 + ") You chose choice " + buttonPressed + ", which linked to event " + link);
+        console.log(choiceCount - 1 + ") choice: " + buttonPressed + ", event: " + link);
     } else {
-        console.log(choiceCount-1 + ") Loading choice " + link);
+        console.log(choiceCount - 1 + ") event: " + link);
     }
-    $("#log").prepend("<li hidden>" + data[link].decr + "</li>");
+    $("#log").prepend("<li hidden>" + data[link].content + "</li>");
     $("#log li").removeClass("active");
     $("#log li").addClass("inactive");//Make the last one gray
     $("#log li:first-child").addClass("active").slideDown("slow");
     //Hide all buttons
-    $("#btn0").prop('hidden', true);
-    $("#btn1").prop('hidden', true);
-    $("#btn2").prop('hidden', true);
-    $("#btn3").prop('hidden', true);
-    //$("#reload").prop('hidden', true);
+    $("#btn0").fadeOut(10);
+    $("#btn1").fadeOut(10);
+    $("#btn2").fadeOut(10);
+    $("#btn3").fadeOut(10);
     var hasLinks = false;
     for (i = 0; i < data[link].links.length; i++) {
-        //console.log("  i:"+i);
+        console.log("  Buttons availible: "+i);
         $("#btn" + i).data("link", data[link].links[i]);
-        $("#btn" + i).prop('hidden', false);
+        console.log("    link:"+data[link].links[i]);
+        $("#btn" + i).fadeIn();
         hasLinks = true;
     }
+    $("#reload").fadeIn();
     if (data[link].change === true) {
         console.log("Change to somebody else");
         $("#log li:first-child").addClass("change");
@@ -50,6 +51,7 @@ $(document).ready(function () {//Manage buttons
     $("#btn1").prop('hidden', true);
     $("#btn2").prop('hidden', true);
     $("#btn3").prop('hidden', true);
+    $("#reload").prop('hidden', true);
     console.log("Please select a story from the dropdown.");
     $("#btn0").click(function () {//update 1
         var link = $("#btn0").data("link");
@@ -68,16 +70,11 @@ $(document).ready(function () {//Manage buttons
         update(link, 4);
     });
     $("#reload").click(function () {//activate the reload button
+        $("error").fadeOut();
         $("#log").html("");
         update(0);
-        console.clear();
+        //console.clear();
     });
-
-
-    $("#info").click(function () {//show info
-        $("#infotext").fadeToggle();
-    });
-
     $("#selectStory").click(function () {
         storyDropdownFunction();
     });
@@ -97,17 +94,20 @@ function storyDropdownFunction() {
     document.getElementById("storyDropdown").classList.toggle("show");
 }
 function loadStory(filename) {
-    choiceCount=0;
+    choiceCount = 0;
     $.getJSON(filename + "?version=" + storyVersion, function (json) {
+        console.log(filename);
         data = json;
         $("#log").html("");
         update(0);
-        console.clear();
-        console.log(filename);
+        //console.clear();
+        
         $("#error").fadeOut();
+        
     })
-        .fail(function () {
-        $("#error").text("Error on " + filename + ". Check the console (press F12) for more information.");
-        $("#error").fadeIn();
-    });
+        .fail(function( jqxhr, textStatus, error ) {
+            $("#error").text("Error: " + filename + ": Check the console (press F12) for more information.");
+            console.log(error);
+            $("#error").fadeIn();
+        });
 }

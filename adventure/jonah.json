@@ -1,39 +1,39 @@
 [{
     "id" : 0,
-	"decr" : "You are Jonah, and God tells you to go to Ninevah-a really immoral city. Do you run away (1), stay at your house (2), or go? (3)",
+	"content" : "You are Jonah, and God tells you to go to Ninevah-a really immoral city. Do you run away (1), stay at your house (2), or go? (3)",
 	
     "links" : [1,2,3]
 }, {
     "id" : 1,
-	"decr" : "You decide to run away, and board a ship going in the opposite direction. You go to sleep. While you're sleeping, the captain comes in and says there's a storm. Do you get up (1), or ignore him? (2)",
+	"content" : "You decide to run away, and board a ship going in the opposite direction. You go to sleep. While you're sleeping, the captain comes in and says there's a storm. Do you get up (1), or ignore him? (2)",
     "links" : [4,5]
 }, {
     "id" : 2,
-	"decr" : "You stay there. God destroys the city and punishes you for not obeying. ",
+	"content" : "You stay there. God destroys the city and punishes you for not obeying. ",
     "links" : [],
 	"win":false
 }, {
     "id" : 3,
-	"decr" : "You go to Ninevah and tell them to repent. They do it and God saves the city. ",
+	"content" : "You go to Ninevah and tell them to repent. They do it and God saves the city. ",
     "links" : [],
 	"win":true
 }, {
     "id" : 4,
-	"decr" : "You get up, and everybody prays to their gods for the storm to stop. The only way it can stop is if they throw you overboard. Do you get thrown overboard (1), or not? (2).",
+	"content" : "You get up, and everybody prays to their gods for the storm to stop. The only way it can stop is if they throw you overboard. Do you get thrown overboard (1), or not? (2).",
     "links" : [6,7]
 }, {
     "id" : 5,
-	"decr" : "You ignore the captain, the storm continues and everybody drowns in the sea. ",
+	"content" : "You ignore the captain, the storm continues and everybody drowns in the sea. ",
     "links" : [],
 	"win":false
 }, {
     "id" : 6,
-	"decr" : "They throw you overboard, but a giant fish comes and swallows you. The fish spits you out at Ninevah and after you preach to them, the people repent.",
+	"content" : "They throw you overboard, but a giant fish comes and swallows you. The fish spits you out at Ninevah and after you preach to them, the people repent.",
     "links" : [],
 	"win":true
 }, {
     "id" : 7,
-	"decr" : "You don't have them throw you overboard. The storm continues and everybody drowns in the sea. ",
+	"content" : "You don't have them throw you overboard. The storm continues and everybody drowns in the sea. ",
     "links" : [],
 	"win":false
 }

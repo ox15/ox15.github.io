@@ -42,8 +42,8 @@ button {
     border: 1px solid #4caf50;
 }
 .win {
-    background-color: green;
-    color: yellow;
+    background-color: yellow;
+    color: green;
 }
 .lose {
     background-color: black;
