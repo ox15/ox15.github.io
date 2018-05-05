@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<!-- Copyright 2015 - Do not copy without permission. -->
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="../../style-hacker.css" />
+  <title>Mad Scientists' Shopping List</title>
+</head>
+<body>
+<h1>Mad Scientists' Shopping List</h1>
+<div  id="form">
+	<form>
+		Adjective: <input type="text" id="v1"><br>
+		Color: <input type="text" id="v2"><br>
+		Part of the Body (Plural): <input type="text" id="v3"><br>
+		Adjective: <input type="text" id="v4"><br>
+		Type of Liquid: <input type="text" id="v5"><br>
+		Type of Liquid: <input type="text" id="v6"><br>
+		Adjective: <input type="text" id="v7"><br>
+		Color: <input type="text" id="v8"><br>
+		Adjective: <input type="text" id="v9"><br>
+		Adjective: <input type="text" id="v10"><br>
+		Letter of the alphabet: <input type="text" id="v11"><br>
+		Verb: <input type="text" id="v12"><br>
+		Last Name: <input type="text" id="v13"><br>
+		City: <input type="text" id="v14"><br>
+		<!--(To copy) Food: <input type="text" id="v14"><br>-->
+		<input type="button" id="go" value="Go">
+	</form>
+</div>
+
+<div id="story"></div>
+
+<script>
+var story = "To be a scientist, you need to buy these:<ul><li>_v1_ _v2_ gloves to go on your _v3_</li><li>_v4_ test tubes so you can mix _v5_ and _v6_</li><li>A/An _v7_ piece of _v8_ chalk and a _v9_ chalkboard so you can write down your _v10_ equasions like E=_v11_c squared</li><li>_v12_ing soda and vinegar for the demo at _v13_'s School in _v14_.";
+var blankCount = 29;
+
+$(document).ready(function(){
+    $("#story").hide();
+
+    $("#go").click(function(){
+		$("#form").fadeOut();
+		for (i = 1; i <= blankCount; i++) {
+			story = story.replace("_v"+i+"_",$("#v"+i).val());
+		}
+		$("#story").html(story).fadeIn();
+    });
+});
+</script>
+
+</body>
+</html>

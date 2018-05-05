@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Jokes</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="answers.js"></script>
+        <script src="../translate.js"></script>
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <link rel="stylesheet" type="text/css" href="../style-hacker.css" />
+    </head>
+    <body>
+        <div style="float:right">
+            <div id="google_translate_element"></div>
+            <a class="btn" href="../index.htm">&lArr; Home</a>
+        </div>
+        <h1>Jokes</h1>
+        <div>How did the gum cross the road?</div><button id="button1">Show answer</button>
+        <div id="answer1" hidden>It was stuck to the chicken's foot.</div><hr>
+
+        <div>What can jump higher than a house?</div><button id="button2">Show answer</button>
+        <div id="answer2" hidden>Anything. Houses can't jump.</div><hr>
+
+        <div>What has 4 wheels and flies?</div><button id="button3">Show answer</button>
+        <div id="answer3" hidden>A garbage truck</div><hr>
+
+        <div>How many times can you subtract 2 from 24?</div><button id="button4">Show answer</button>
+        <div id="answer4" hidden>Only once. 24-2=22, not 24</div><hr>
+
+        <div>Six robbers rode in a Ford for over 50 miles to their hideout. The trip took exactly one hour, yet no one in the car noticed they had a flat tire all this time. How was that possible?</div><button id="button5">Show answer</button>
+        <div id="answer5" hidden>The spare tire was flat.</div><hr>
+
+        <div> A woman gave a beggar two dollars. The woman is the beggar's sister, but the beggar is not the woman's brother. What is their relationship?</div><button id="button6">Show answer</button>
+        <div id="answer6" hidden>The beggar is a woman, so they are sisters.</div><hr>
+
+        <div>How can you intercalate (full/empty/full/empty) these six glasses by moving only one of them?</div>
+        <button id="unsolvedcup"><img src="cups.png" alt="There are 3 full glasses and 3 empty glasses. Click to show the answer." /></button>
+        <div id="answercup" hidden>
+            <img src="cups-solved.png" alt="The solution is displayed below" /><br>
+            Dump the contents of the second cup into the 5th cup, then put the 2nd cup back into its original position.
+        </div>
+
+        <hr><div>A father had a gold horse shoe. He wanted to divide it in six parts to give one to each of his six sons. He could only make two straight cuts. He figured it out and succeeded, although his sons got a different part size each. How did he do it?</div>
+        <button id="unsolvedhs"><img src="hshoe.png" alt="Show answer" /></button>
+        <img id="answerhs" src="hshoe-solved.png" alt="Make an X so that the part where it intersects is on the bottom part of the horseshoe." hidden />
+        <hr>
+    </body>
+</html>
