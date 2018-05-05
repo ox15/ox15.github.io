@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Copyright 2015 - Do not copy without permission. -->
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="../../style-hacker.css" />
+  <title>Exploring</title>
+</head>
+<body>
+<div class="jumbotron">
+	<h1>Exploring</h1>
+</div>
+<div  id="form">
+	<form>
+		Adjective: <input type="text" id="v1"><br>
+		Noun: <input type="text" id="v2"><br>
+		Silly Word: <input type="text" id="v3"><br>
+		Noun: <input type="text" id="v4"><br>
+		Adjective: <input type="text" id="v5"><br>
+		Car Make: <input type="text" id="v7"><br>
+		Number: <input type="text" id="v8"><br>
+		Number: <input type="text" id="v9"><br>
+		Number: <input type="text" id="v10"><br>
+		Person in Room: <input type="text" id="v11"><br>
+		Last Name: <input type="text" id="v12"><br>
+		Type of Liquid: <input type="text" id="v13"><br>
+		Number: <input type="text" id="v14"><br>
+		Number: <input type="text" id="v15"><br>
+		<input type="button" id="go" value="Go">
+	</form>
+</div>
+<div id="story"></div>
+
+<script>
+
+var story = "Exploring is _v1_. If you want to go under the _v2_, you'll need Self-Contained Underwater Breathing Apparatus (_v3_) gear. This includes a mask, an air _v4_, flippers, and more. If you want to go on a/an _v5_ safari, you'll need:<ul><li>A _v7_ Wrangler (if you get one that was made in the year _v8_ or later, they have _v9_-way radios with _v10_ channels, so you can talk to me or _v11_ or a member of the _v12_ family)</li><li>A hat</li> <li>Sunscreen</li><li>A bottle of _v13_</li><li>A camera that can take at least _v14_ pictures and _v15_ videos.";
+var blankCount = 15;
+
+$(document).ready(function(){
+	$("#story").fadeOut();
+    story = story.replace("_adj1_",$("#adj1").val().toLowerCase());
+
+    $("#go").click(function(){
+		$("#form").fadeOut();
+		for (i = 1; i <= blankCount; i++) {
+			story = story.replace("_v"+i+"_",$("#v"+i).val());
+		}
+		$("#story").html(story).fadeIn();
+    });
+});
+</script>
+<script src="../../lib/bootstrap.js"></script>
+</body>
+</html>
