@@ -19,6 +19,10 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+.news {
+    text-align: left;
+    border: 2px solid black;
+}
 .highlight{
     color:#d0d0d0
 }
@@ -270,4 +274,3 @@ a{
 .cf{
     zoom:1
 }
- 
