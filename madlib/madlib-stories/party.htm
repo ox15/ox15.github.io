@@ -8,30 +8,36 @@
 
     <!-- Copyright 2015 - Do not copy without permission. -->
 
-
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<link rel="stylesheet" href="../../style-hacker.css" />
+    <script src="../../translate.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../style-hacker.css" />
   <title>Party Invitation</title>
 </head>
 <body>
+<div style="float:right">
+    <div id="google_translate_element"></div>
+    <a class="btn" href="../index.htm">All Madlibs</a>
+    <a class=btn href="../../index.htm">Home</a>
+</div>
 <h1>Party Invitation</h1>
 <div  id="form">
-	<form>
-		Person in Room: <input type="text" id="v1"><br>
-		Type of Party: <input type="text" id="v2"><br>
-		Place: <input type="text" id="v3"><br>
-		Month: <input type="text" id="v4"><br>
-		Number: <input type="text" id="v5"><br>
-		Number: <input type="text" id="v6"><br>
-		Time: <input type="text" id="v7"><br>
-		Time: <input type="text" id="v8"><br>
-		Noun: <input type="text" id="v9"><br>
-		Noun: <input type="text" id="v10"><br>
-		Noun: <input type="text" id="v11"><br>
-		Person in Room: <input type="text" id="v12"><br>
-        Person in Room: <input type="text" id="v13"><br>
-		<input type="button" id="go" value="Go">
-	</form>
+    <form>
+        Person: <input type="text" id="v1"><br>
+        Type of Party: <input type="text" id="v2"><br>
+        Place: <input type="text" id="v3"><br>
+        Month: <input type="text" id="v4"><br>
+        Number: <input type="text" id="v5"><br>
+        Number: <input type="text" id="v6"><br>
+        Time: <input type="text" id="v7"><br>
+        Time: <input type="text" id="v8"><br>
+        Thing: <input type="text" id="v9"><br>
+        Thing: <input type="text" id="v10"><br>
+        Thing: <input type="text" id="v11"><br>
+        Person: <input type="text" id="v12"><br>
+        Person: <input type="text" id="v13"><br>
+        <input type="button" id="go" value="Go">
+    </form>
 </div>
 <div id="story">
 
@@ -42,14 +48,14 @@ var story = "You're invited to _v1_'s _v2_ party!<br>Place: _v3_<br>Date: _v4_ _
 var blankCount = 22;
 
 $(document).ready(function(){
-	$("#story").hide();
+    $("#story").hide();
 
     $("#go").click(function(){
-		$("#form").fadeOut();
-		for (i = 1; i <= blankCount; i++) {
-			story = story.replace("_v"+i+"_",$("#v"+i).val());
-		}
-		$("#story").html(story).fadeIn();
+        $("#form").fadeOut();
+        for (i = 1; i <= blankCount; i++) {
+            story = story.replace("_v"+i+"_",$("#v"+i).val());
+        }
+        $("#story").html(story).fadeIn();
     });
 });
 </script>
