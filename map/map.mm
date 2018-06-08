@@ -9,6 +9,7 @@
 <node CREATED="1512771677511" ID="ID_1806537273" MODIFIED="1512771682872" TEXT="Download">
 <node CREATED="1512771817610" ID="ID_816045599" LINK="../games/invaders/index.htm" MODIFIED="1522797472762" TEXT="Invaders"/>
 <node CREATED="1512771888296" ID="ID_282341165" LINK="../games/save-the-sheep/index.htm" MODIFIED="1522797493839" TEXT="Save the Sheep"/>
+<node CREATED="1528421706921" ID="ID_1362993787" LINK="../games/war/index.htm" MODIFIED="1528465618251" TEXT="War"/>
 </node>
 <node CREATED="1512771685469" ID="ID_299578328" MODIFIED="1512771781839" TEXT="Board games">
 <node CREATED="1512771792540" ID="ID_811647075" LINK="../games/challenger/index.htm" MODIFIED="1522797508990" TEXT="Challenger"/>
@@ -17,6 +18,7 @@
 <node CREATED="1512771842587" ID="ID_304733964" LINK="../games/more/monopoly.jpg" MODIFIED="1522797594143" TEXT="Mini monopoly"/>
 <node CREATED="1512771878229" ID="ID_646294776" LINK="../games/promotion/index.htm" MODIFIED="1522797608041" TEXT="Promotion"/>
 <node CREATED="1512771956209" ID="ID_561947588" LINK="../games/shoot&amp;score/index.htm" MODIFIED="1522797620038" TEXT="Shoot &amp; Score"/>
+<node CREATED="1528421715969" ID="ID_1527163150" LINK="../games/war/index.htm#instructions" MODIFIED="1528465717520" TEXT="War"/>
 </node>
 </node>
 <node CREATED="1512771253180" ID="ID_1587511800" LINK="../help/index.htm" MODIFIED="1522797799704" POSITION="left" TEXT="Help"/>
