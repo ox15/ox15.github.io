@@ -36,6 +36,30 @@ $(document).ready(function(){
         console.info("button 6 pressed");
 
 	});
+     $("#button7").click(function(){
+		$("#answer7").fadeIn();
+		$("#button7").fadeOut();
+        console.info("button 7 pressed");
+
+	});
+    $("#button8").click(function(){
+		$("#answer8").fadeIn();
+		$("#button8").fadeOut();
+        console.info("button 8 pressed");
+
+	});
+    $("#button9").click(function(){
+		$("#answer9").fadeIn();
+		$("#button9").fadeOut();
+        console.info("button 9 pressed");
+
+	});
+    $("#button10").click(function(){
+		$("#answer10").fadeIn();
+		$("#button10").fadeOut();
+        console.info("button 10 pressed");
+
+	});
     $("#unsolvedhs").click(function(){
         $("#unsolvedhs").fadeOut();
 		$("#answerhs").fadeIn();
