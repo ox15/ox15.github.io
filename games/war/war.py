@@ -1,7 +1,7 @@
 #!/usr/bin/python
 '''
 To run this file, you can type its location (use "." for the current directory)
-Example: If this file is in your home directory, you can press Control-Alt-T and type "./war.py"
+Example: If this file is in your home directory, you can open a terminal (press Control-Alt-T) and type "./war.py"
 If it's on your desktop, you can open a terminal and type "Desktop/war.py"
 
 
@@ -47,4 +47,3 @@ if myScore>yourScore: print("I won the game by "+str(myScore-yourScore)+" rounds
 elif yourScore>myScore: print("You won the game by "+str(yourScore-myScore)+" rounds!")
 else: print("We tied.")
 print("\nCheck out my website! https://jcadcell.github.io\n")
-
