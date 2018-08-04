@@ -60,6 +60,18 @@ $(document).ready(function(){
         console.info("button 10 pressed");
 
 	});
+    $("#button11").click(function(){
+		$("#answer11").fadeIn();
+		$("#button11").fadeOut();
+        console.info("button 11 pressed");
+
+	});
+    $("#button12").click(function(){
+		$("#answer12").fadeIn();
+		$("#button12").fadeOut();
+        console.info("button 12 pressed");
+
+	});
     $("#unsolvedhs").click(function(){
         $("#unsolvedhs").fadeOut();
 		$("#answerhs").fadeIn();
