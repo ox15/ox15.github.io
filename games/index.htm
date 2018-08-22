@@ -12,11 +12,11 @@
         <div style="float:right">
             <div id="google_translate_element"></div>
             <a class="btn" href="../index.htm">&lArr; Home</a>
-            <button id="helpbtn" class="btn" style="float:right">Help</button>
         </div>
         <h1>Games</h1>
-        <div id="help" style="border: 3px solid green; padding: 10px"hidden>
-            <h2>Help</h2>
+        <details id="help">
+            <summary>Click to display help</summary>
+            <DIV style="border:3px solid green;padding:5px">
             <h3>The game won't show up</h3>
             <div>For <a href="pong/index.htm">Pong</a>, make sure you have JavaScript enabled. If you're using <a href="https://www.google.com/chrome/">Chrome</a>, you can check by <a href="chrome://settings/content/javascript">going to the settings</a>. Make sure this site is not on the "Block" list. <a href="https://www.mozilla.org/firefox/">Firefox</a> will always allow Javascript.</div><br>
             <div>All other games are either board games (just instructions and a board) or executable JAR files that have to be downloaded.</div>
@@ -24,8 +24,13 @@
             <h4><a href="pong/index.htm">Pong</a></h4>
             <div>Click the mouse to start the game. Click it again to pause.</div>
             <h4>Downloaded games</h4>
-            <div>Click "Run" to start the game.</div>
-        </div>
+            <div>Click "Run" to start the game. Java doesn't come with Windows, so Windows users can follow these steps:</div>
+            <ol>
+                <li>Install Java or the Java Development Kit (JRE)</li>
+                <li>In the file browser, </li>
+            </ol>
+            </DIV>
+        </details>
         <p>Click on the title of any games page to download the necessary components (boards, files, etc.)</p>
 
         <a href="war/index.htm">War</a><br>
@@ -42,10 +47,5 @@
 
         <p>Questions? Fill out the <a href="https://goo.gl/forms/GGfXroMv49epC9g62">feedback form</a> to submit a question. Academia Los Pinares users, fill out <a href="https://goo.gl/forms/ukgJjmvGDTfzlFhu2">this form</a>.</p>
     </body>
-    <script>
-            $("#helpbtn").click(function () {//show info
-                $("#help").fadeToggle();
-            });
-    </script>
 </html>
 
