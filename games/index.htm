@@ -1,22 +1,23 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
+<head>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="../translate.js"></script>
-        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        <link rel="stylesheet" href="../style-hacker.css" />
-        <title>Games</title>
-    </head>
-    <body>
-        <div style="float:right">
-            <div id="google_translate_element"></div>
-            <a class="btn" href="../index.htm">&lArr; Home</a>
-        </div>
-        <h1>Games</h1>
-        <details id="help">
-            <summary>Click to display help</summary>
-            <DIV style="border:3px solid green;padding:5px">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../translate.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link rel="stylesheet" href="../style-hacker.css" />
+    <title>Games</title>
+</head>
+
+<body>
+    <div style="float:right">
+        <div id="google_translate_element"></div>
+        <a class="btn" href="../index.htm">&lArr; Home</a>
+    </div>
+    <h1>Games</h1>
+    <details id="help">
+        <summary>Click to display help</summary>
+        <div style="border:3px solid green;padding:5px">
             <h3>The game won't show up</h3>
             <div>For <a href="pong/index.htm">Pong</a>, make sure you have JavaScript enabled. If you're using <a href="https://www.google.com/chrome/">Chrome</a>, you can check by <a href="chrome://settings/content/javascript">going to the settings</a>. Make sure this site is not on the "Block" list. <a href="https://www.mozilla.org/firefox/">Firefox</a> will always allow Javascript.</div><br>
             <div>All other games are either board games (just instructions and a board) or executable JAR files that have to be downloaded.</div>
@@ -24,28 +25,37 @@
             <h4><a href="pong/index.htm">Pong</a></h4>
             <div>Click the mouse to start the game. Click it again to pause.</div>
             <h4>Downloaded games</h4>
-            <div>Click "Run" to start the game. Java doesn't come with Windows, so Windows users can follow these steps:</div>
-            <ol>
-                <li>Install Java or the Java Development Kit (JRE)</li>
-                <li>In the file browser, </li>
-            </ol>
-            </DIV>
-        </details>
-        <p>Click on the title of any games page to download the necessary components (boards, files, etc.)</p>
+            <div>Click "Run" to start the game. Java doesn't come with Windows, so Windows users can <a href="https://www.java.com/en/download/">download Java here</a>. Depending on how you installed Java, you might be able to double-click on a JAR file, wait a few seconds, click Run, and start the game. If that doesn't work, you can follow these steps:</div>
+            <details id="wj">
+                <summary>Click to show steps</summary>
+                <ol>
+                    <li>In the file browser, right-click your "Computer" or "This PC" folder and choose "Properties".</li>
+                    <li>Click "Advanced system settings" in the left pane.</li>
+                    <li>Click "Environment Variables"</li>
+                    <li>In the "System Variables" section, select "Path" and press the "Edit" button.</li>
+                    <li>At the beginning of the text box, add the path to the folder where Java is, followed by a semicolon. This will allow you to run Java in your command prompt.</li>
+                    <li>Click the OK button on the Edit System Variable, Environment Variables, and System Properties dialog boxes. You can test if it worked by typing "java -version" in your command prompt.</li>
+                    <li>Try double-clicking on the JAR file again. If it doesn't work, open your command prompt, type "java -jar ", followed by the location of the JAR file, like this:<br><br>java -jar C:\Users\ME\Desktop\invaders.jar<br><br>Replace "ME" with your username. If the path has spaces in it, surround it with quotes.</li>
+                    <li>Click "Run" to play the game</li>
+                </ol>
+            </details>
+        </div>
+    </details>
+    <p>Click on the title of any games page to download the necessary components (boards, files, etc.)</p>
 
-        <a href="war/index.htm">War</a><br>
-        <a href="pong/index.htm">Pong game</a><br>
-        <a href="challenger/index.htm">How to play Challenger</a><br>
-        <a href="mini-chess/index.htm">How to play Mini chess/checkers</a><br>
-        <a href="hockey/index.htm">How to play paper hockey</a><br>
-        <a href="shoot&score/index.htm">How to play Shoot &amp; Score</a><br>
-        <a href="save-the-sheep/index.htm">Save the Sheep!</a><br>
-        <a href="invaders/index.htm">Play a classic invaders game</a>
-        <p>Click on the link to go to the games page at Math is Fun.</p>
-        <a href="http://www.mathsisfun.com/games/"><img src="http://www.mathsisfun.com/images/banner/mif120_60.gif" alt="Go to the games at Math is Fun"></a><br>
-        <p>You can <a href="more/index.htm">print more boards</a> that aren't used in a specific game. You can make your own rules.</p>
+    <a href="war/index.htm">War</a><br>
+    <a href="pong/index.htm">Pong game</a><br>
+    <a href="challenger/index.htm">How to play Challenger</a><br>
+    <a href="mini-chess/index.htm">How to play Mini chess/checkers</a><br>
+    <a href="hockey/index.htm">How to play paper hockey</a><br>
+    <a href="shoot&score/index.htm">How to play Shoot &amp; Score</a><br>
+    <a href="save-the-sheep/index.htm">Save the Sheep!</a><br>
+    <a href="invaders/index.htm">Play a classic invaders game</a>
+    <p>Click on the link to go to the games page at Math is Fun.</p>
+    <a href="http://www.mathsisfun.com/games/"><img src="http://www.mathsisfun.com/images/banner/mif120_60.gif" alt="Go to the games at Math is Fun"></a><br>
+    <p>You can <a href="more/index.htm">print more boards</a> that aren't used in a specific game. You can make your own rules.</p>
 
-        <p>Questions? Fill out the <a href="https://goo.gl/forms/GGfXroMv49epC9g62">feedback form</a> to submit a question. Academia Los Pinares users, fill out <a href="https://goo.gl/forms/ukgJjmvGDTfzlFhu2">this form</a>.</p>
-    </body>
+    <p>Questions? Fill out the <a href="https://goo.gl/forms/GGfXroMv49epC9g62">feedback form</a> to submit a question.</p>
+</body>
+
 </html>
-
