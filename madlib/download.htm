@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../style-hacker.css" />
+    <script src="../translate.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<div id="story-download">
+    <div id="story"></div>
+    <hr>
+    <button class="btn" id="dwn-btn">Download your story</button>
+    <p>If you download your story, it will go into your Downloads folder with the name "story.html", unless you changed your browser's download settings.</p>
+</div>
+<script>
+    function download(filename, story) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(story));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
+
+    // Start file download.
+    document.getElementById("dwn-btn").addEventListener("click", function() {
+        // Generate download of hello.txt file with some content
+        var filename = "story.html";
+
+        download(filename, story);
+    }, false);
+
+</script>

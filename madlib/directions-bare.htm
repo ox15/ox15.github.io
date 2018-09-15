@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<!-- Copyright 2015 - Do not copy without permission. -->
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../style-hacker.css" />
+    <script src="../translate.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <title>Directions</title>
+</head>
+
+<body>
+    <div style="float:right">
+        <div id="google_translate_element"></div>
+        <a class="btn" href="../index.htm">All Madlibs</a>
+        <a class=btn href="../../index.htm">Home</a>
+    </div>
+    <h1>Directions</h1>
+
+    <div id="form">
+        <form>
+            Number: <input type="text" id="house1"><br>
+            Name: <input type="text" id="st"><br>
+            City: <input type="text" id="city1"><br>
+            Place: <input type="text" id="place"><br>
+            Number: <input type="text" id="house2"><br>
+            Name (Female): <input type="text" id="ave"><br>
+            City: <input type="text" id="city2"><br>
+            Silly Word: <input type="text" id="st1"><br>
+            Number: <input type="text" id="ft"><br>
+            Last Name: <input type="text" id="dr1"><br>
+            Number: <input type="text" id="num"><br>
+            Name: <input type="text" id="st2"><br>
+            Number: <input type="text" id="st3"><br>
+            Color: <input type="text" id="light"><br>
+            Verb: <input type="text" id="verb"><br>
+            Thing: <input type="text" id="noun"><br>
+            Color: <input type="text" id="light2"><br>
+            Part of the Body: <input type="text" id="bp"><br>
+            Name (Female): <input type="text" id="ave2"><br>
+            <input type="button" id="go" value="Go">
+        </form>
+    </div>
+    <iframe id="#story-download" src="download.htm" style="border: none" width="100%"></iframe>
+    <script>
+        var story = "<h2>From</h2>_house1_ _st_ St., _city1_<h2>To</h2>_place_, _house2_ _ave_ Ave., _city2_<br><br><br>At the end of the road, turn left onto _st1_ St. Keep going on _st1_ St. for _ft_ feet. Turn right onto _dr1_ Dr. Then, take the _num_th left onto _st2_ St. Go straight through the intersection onto _st3_th St. This street has a weird traffic light. If you see a(n) _light_ light, _verb_ your car's _noun_. If the light turns _light2_, stick your left _bp_ out the window. Turn right onto _ave2_ Ave. _place_ is on the right.";
+
+        $(document).ready(function() {
+            $("#story-download").hide();
+
+            $("#go").click(function() {
+                $("#form").fadeOut();
+                story = story.replace("_house1_", $("#house1").val());
+                story = story.replace("_st_", $("#st").val());
+                story = story.replace("_city1_", $("#city1").val());
+                story = story.replace("_place_", $("#place").val());
+                story = story.replace("_house2_", $("#house2").val());
+                story = story.replace("_ave_", $("#ave").val());
+                story = story.replace("_city2_", $("#city2").val());
+                story = story.replace("_st1_", $("#st1").val());
+                story = story.replace("_st1_", $("#st1").val());
+                story = story.replace("_ft_", $("#ft").val());
+                story = story.replace("_dr1_", $("#dr1").val());
+                story = story.replace("_num_", $("#num").val());
+                story = story.replace("_st2_", $("#st2").val());
+                story = story.replace("_st3_", $("#st3").val());
+                story = story.replace("_light_", $("#light").val());
+                story = story.replace("_verb_", $("#verb").val());
+                story = story.replace("_noun_", $("#noun").val());
+                story = story.replace("_light2_", $("#light2").val());
+                story = story.replace("_bp_", $("#bp").val());
+                story = story.replace("_ave2_", $("#ave2").val());
+                story = story.replace("_place_", $("#place").val());
+
+
+                $("#story-download").fadeIn();
+                $("#story").html(story).fadeIn();
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>
