@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <title>War</title>
         <link rel="stylesheet" href="../../style-hacker.css" />
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="../../translate.js"></script>
         <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     </head>
@@ -15,11 +14,7 @@
             <a class="btn" href="../../index.htm">&lArr; Home</a>
         </div>
         <h1>War</h1>
-        <button id="download" class="btn">Play War against the computer</button>
-        <div id="downloads" hidden>
-            <a href="war.py" class="btn" accesskey="p">Download the Python version (press Alt-P)</a>
-            <p>Javascript version coming soon...</p>
-        </div>
+        <a href="../python/war.py" class="btn" accesskey="p">Download the Python version (press Alt-P)</a>
         <h2 id="instructions">How to Play</h2>
         <h3>Setup</h3>
         <table style="width: 25%">
@@ -43,9 +38,4 @@
             <li>The first player plays his top card and puts it face-up in the middle of the table, followed by each of the other players. The person who played the highest card wins all of the cards in the pile. If multiple players play the same card, there's a war.</li>
         </ol>
     </body>
-    <script>
-        $("#download").click(function(){
-            $("#downloads").fadeToggle();
-        });
-    </script>
 </html>

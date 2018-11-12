@@ -1,12 +1,4 @@
 #!/usr/bin/python
-'''
-To run this file, you can type its location (use "." for the current directory)
-Example: If this file is in your home directory, you can open a terminal (press Control-Alt-T) and type "./war.py"
-If it's on your desktop, you can open a terminal and type "Desktop/war.py"
-
-
-Check out my website! https://jcadcell.github.io
-'''
 import random, sys # random for random cards; sys for the enter key
 def war(): # What do we do in a war?
     print("WAR!") # Show that we're in a war
