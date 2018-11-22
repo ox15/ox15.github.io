@@ -4,7 +4,7 @@
 
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="../../style-hacker.css" />
+    <link rel="stylesheet" href="../../style.css" />
     <script src="../translate.js"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <title>Directions</title>
@@ -47,7 +47,7 @@
         var story = "<h2>From</h2>_house1_ _st_ St., _city1_<h2>To</h2>_place_, _house2_ _ave_ Ave., _city2_<br><br><br>At the end of the road, turn left onto _st1_ St. Keep going on _st1_ St. for _ft_ feet. Turn right onto _dr1_ Dr. Then, take the _num_th left onto _st2_ St. Go straight through the intersection onto _st3_th St. This street has a weird traffic light. If you see a(n) _light_ light, _verb_ your car's _noun_. If the light turns _light2_, stick your left _bp_ out the window. Turn right onto _ave2_ Ave. _place_ is on the right.";
 
         $(document).ready(function() {
-            $("#story-download").hide();
+            $("#story-download").fadeOut(100);
 
             $("#go").click(function() {
                 $("#form").fadeOut();
@@ -72,8 +72,8 @@
                 story = story.replace("_bp_", $("#bp").val());
                 story = story.replace("_ave2_", $("#ave2").val());
                 story = story.replace("_place_", $("#place").val());
-
-
+               
+                
                 $("#story-download").fadeIn();
                 $("#story").html(story).fadeIn();
             });

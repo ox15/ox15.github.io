@@ -49,11 +49,13 @@ while True:
             break
         continue
     print("You played "+yourItem)
+    sleep(sleepTime)
     mine+=1
     if mine==1: myItem="Rock"
     elif mine==2: myItem="Paper"
     elif mine==3: myItem="Scissors"
     print("I played "+myItem)
+    sleep(sleepTime)
     ints()
     if yours==mine:
         result="We tied"
@@ -81,4 +83,5 @@ while True:
     strings()
     mine-=1
     print(result+"\nHere's the current score")
+    sleep(sleepTime)
     scores()
