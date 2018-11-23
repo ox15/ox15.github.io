@@ -7,9 +7,21 @@ body{font-family:sans-serif}
     padding: 5px;
     text-decoration: none;
 }
+.btn-orange {
+    background-color: orangered;
+    border: 1px solid orangered;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    text-decoration: none;
+}
 .btn:hover, .btn:focus, nav a:hover, nav a:focus, .dropbtn:hover, .dropbtn:focus a:hover {
     background-color: #ffffff;
     color: #4CAF50;
+}
+.btn-orange:hover {
+    background-color: white;
+    color: orangered;
 }
 nav ul {
     list-style-type: none;

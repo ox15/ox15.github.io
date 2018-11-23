@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Ultimate Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../translate.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+<div style="float:right">
+    <div id="google_translate_element"></div>
+    <a class="btn" href="../index.htm">All games</a>
+    <a class="btn" href="../../index.htm">&lArr; Home</a>
+</div>
+<h1>Ultimate Tic-Tac-Toe</h1>
+<h2>Materials</h2><br>
+<ul>
+    <li>A piece of paper (if you don't want to draw one yourself, you can <a href="ultimate_tic-tac-toe.pdf" target="_blank">download the board here</a>)</li>
+    <li>2 index cards for scores (or 1 index card split down the middle)</li>
+</ul>
+<h2>Play</h2>
+<h3>Board</h3>
+<p>The board has coordinates, like a chess board. For example, the coordinate C5 means "find column C, then go down to row 5." <p id="extra-turn">Spaces that have a "T" mean you get an extra turn when you play on those spaces (E3, G3, E9, and G9).</p> Spaces with an "X3" mean you get the normal number of points, then multiply it by 3 (C3, I3, C9, and I9). Spaces with an "X2" mean multiply the number of points you get by 2 (D5, H5, D7, and H7). Spaces F1 and F11 are free spaces.</p>
+<h3>Play</h3>
+<p>Choose a player to be X. The other player is O. X always goes first. X places an X in any empty space on the board. Then, it's O's turn. O places an O in any empty space on the board. X's and O's are collectively called "marks". The players keep doing this until there are no more empty spaces. On some squares, the player gets an extra turn (see <a href="#extra-turn">the "Board" section</a> above).</p>
+<h3>Scoring</h3>
+<p>Add these points to determine the number of points a player gets on his turn (for example, if an X is touching an O and another X, the X player gets 1 point for making an X, 1 point for touching one other X, and 2 points for touching an O).</p>
+<table>
+    <tr>
+        <td>Points</td>
+        <td>Action</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Making a mark anywhere on the board</td>
+    </tr>
+    <tr>
+        <td>Number of marks that this mark is touching</td>
+        <td>Making a mark that touches other marks. This includes diagonals. The number of points you get depends on how many marks that this mark is touching.</td>
+    </tr>
+    <tr>
+        <td>Double the number of marks that this mark is touching</td>
+        <td>Making a mark that touches marks made by your opponent. This includes diagonals. The number of points you get depends on how many of your opponent's marks that this mark is touching.</td>
+    </tr>
+</table>
+<h3>Winning</h3>
+<p>The game is over when there are no more empty spaces on the board. The player with the most points wins.</p>
+</body>
+</html>
