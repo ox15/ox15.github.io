@@ -1,14 +1,26 @@
 import random, sys
 
+class Item(object):
+    def __init__(self, quantity, item, price):
+        self.money=1000
+        self.item=item
+        self.quantity=quantity
+        self.price=price
+        self.totalPrice=self.price * self.quantity
+    def makeItem(self, quantity, item, price):
+        """Make a quantity of items with a price for each item,
+            then buy the item."""
+        print("You bought "+str(quantity)+" "+item+" for $"+str(price))
+        self.money -= price
+        print("You now have $"+str(self.money))
+
+
 class Game(object):
     def __init__(self):
         self.money=1000
         self.sold=False
         self.item=None
-    def makeItem(self, quantity, item, price):
-        print("You bought "+str(quantity)+" "+item+" for $"+str(price))
-        self.money -= price
-        print("You now have $"+str(self.money))
+
     def start(self):
         print("You have $"+str(self.money)+". Select something to buy:")
         print("1. Guitar: $40")
@@ -18,9 +30,9 @@ class Game(object):
         if self.item == 1:
             self.albumPrice = random.randint(1, 10)
             self.copies = random.randint(10, 100)
-            self.makeItem(1, "guitar", 40)
+            Item.makeItem(self, 1, "guitar", 40)
             self.money = (self.albumPrice * self.copies) + self.money
-            print("You record an album with your new guitar and make "+str(self.copies)+" copies of it. You sell them for $"+str(self.albumPrice)+" each. You now have $"+str(self.money))
+            print("You record an album with your new guitar and make "+str(self.copies)+" copies of it. You sell them for $"+str(self.albumPrice)+" each, for a total of $"+str(self.albumPrice * self.copies)+". You now have $"+str(self.money))
     def layEggs(self):
         self.eggsPerChicken=[]
         for i in range(self.chickens):
@@ -54,7 +66,7 @@ class Game(object):
     def chickens(self):
         if self.item == 2:
             self.chickens=int(input("How many chickens do you want to buy? "))
-            self.makeItem(self.chickens, "chickens", self.chickens*10)
+            Item.makeItem(self, self.chickens, "chickens", self.chickens*10)
             if self.chickens>50:
                 raise AssertionError("There are only 50 chickens")
             while True:
