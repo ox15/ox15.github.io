@@ -1,7 +1,6 @@
 #!/usr/bin/python
-from time import sleep
 import random
-sleepTime=1
+
 myScore = 0
 yourScore = 0
 ties = 0
@@ -28,23 +27,33 @@ def scores():
     print("Tie: "+ties)
 while True:
     mine=random.randint(0,2)
-    yours=int(input("Press 1 to play rock, 2 to play paper, 3 to play scissors, or 0 to end: "))
-    if yours==1: yourItem="Rock"
-    elif yours==2: yourItem="Paper"
-    elif yours==3: yourItem="Scissors"
-    elif yours==0:
-        strings()
-        print("Total score: ")
-        scores()
-        if yourScore>myScore:
-            print("You won the game!")
-        elif myScore>yourScore:
-            print("I won the game.")
-        elif yourScore==myScore:
-            print("We tied the game.")
-        break
-    else:
-        end=input("That's not a valid option. Let's play another round.")
+    try:
+        yours=int(input("Press 1 to play rock, 2 to play paper, 3 to play scissors, or 0 to end: "))
+
+        if yours==1: yourItem="Rock"
+        elif yours==2: yourItem="Paper"
+        elif yours==3: yourItem="Scissors"
+        #elif yours==0:
+        else:
+            strings()
+            print("Total score: ")
+            scores()
+            if yourScore>myScore:
+                print("You won the game!")
+            elif myScore>yourScore:
+                print("I won the game.")
+            elif yourScore==myScore:
+                print("We tied the game.")
+            break
+        """
+        else:
+            end=input("That's not a valid option. Let's play another round.")
+            if end==".":
+                break
+            continue
+        """
+    except ValueError:
+        end=input("You need to input a number. Let's play another round.")
         if end==".":
             break
         continue
