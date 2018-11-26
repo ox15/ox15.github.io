@@ -7,6 +7,8 @@ Letter Guessing Game
 class Game(object):
     def __init__(self):
         # Split a string of uppercase letters into a list.
+        self.score = 20
+        self.iScore = 20
         self.vowels = "A,E,I,O,U".split(",")
         self.cons = "B,C,D,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,X,Y,Z".split(",")
         self.WORDLIST_FILENAME = "words.txt"
@@ -24,82 +26,63 @@ class Game(object):
                 self.wordList.append(line.strip())
             print("  ", len(self.wordList), "words loaded.")
 
-    def makeWord(self, length):
+    def getLetters(self, length):
         """Returns a string of letters used to make a word."""
         self.wordChoices = ""
         for i in range(length):
             self.letterChoices = random.choice(self.vowels) + \
                 random.choice(self.cons) + random.choice(self.cons)
             self.wordChoices = self.wordChoices + "\n" + self.letterChoices
+            i += 1
         return self.wordChoices
-    def wordMaker(self):
-        """Ask the user to make a word using the provided sets of letters."""
-        length=int(input("How long should the word be? "))
-        self.wordChoices = ""
-        for i in range(length):
-            self.letterChoices = random.choice(self.vowels) + \
-                random.choice(self.cons) + random.choice(self.cons)
-            self.wordChoices = self.wordChoices + "\n" + self.letterChoices
-        return self.wordChoices
-        print("Your choices are:", self.wordChoices)
-        word=input("Please make a word, or type '.' to exit: ")
-        if word in self.wordList:
-            print("That's a valid word!")
-        elif word == ".":
-            sys.exit()
-        else:
-            print("That's not a valid word.")
-    def guesser(self):
-        """Computer makes a word, you are the guesser."""
-        length = 3
+    def guess(self):
         while True:
-            word = ""
-            choices=self.makeWord(length)#random.randint(3, 10)
-            #print("choices:", str(choices))
-            choiceList=choices.split("\n")[1:]
-            choiceList2=choiceList[:]
-            #print("choice list:", str(choiceList))
-            #letterChoices = random.choice(choiceList)
-            #print("letter choices:", str(letterChoices))
-            for i in range(3):
-                #choices=self.makeWord(3)#random.randint(3, 10)
-                print("choices:", str(choices))
-                #choiceList=choices.split("\n")[1:]
-                print("choice list:", str(choiceList))
-                letterChoices = random.choice(choiceList)
-                print("letter choices:", str(letterChoices))
-                letter=random.choice(letterChoices)
-                print("letter:", letter)
-                word=word+letter
-                choiceList.remove(letterChoices)
-                print("word:", word)
-                print("i", i)
-                i += 1
-                #print(i)
-                x=input(">")
-                if x==".":
-                    sys.exit()
-                if word in self.wordList and len(word)==length:
-                    i=0
-                    print("The computer's word is "+ word)
-                    print("The computer found a word using these letters:", str(choiceList2))
-                    while True:
-                        guess=str(input("Enter your guess: ")).upper()
-                        if guess==word:
-                            print("You guessed right, the word was "+word)
-                            break
-                        elif guess=="XXX":
-                            break
-                        else:
-                            print("No, try again")
+            guess=str(input("Enter your guess: ")).upper()
+            if guess==self.word:
+                print("You guessed right, the word was "+self.word)
+                self.score += 3
+                print("Your score is", str(self.score))
+                break
+            elif guess==".":
+                print("You gave up. The word was "+self.word)
+                print("Your score is", str(self.score))
+                self.stop=True
+                break
+            else:
+                print("No, try again")
+                self.score -= 1
+                print("Your score is", str(self.score)+"/"+str(self.iScore))
+    def makeWord(self):
+        for i in range(self.length):
+            if self.stop==True: break
+            letterChoices = random.choice(self.choiceList)
+            letter=random.choice(letterChoices)
+            self.word=self.word+letter
+            self.choiceList.remove(letterChoices)
+            i += 1
+            if self.word in self.wordList and len(self.word)==self.length:
+                i=0
+                #print("The computer's word is "+ word)
+                print("The computer found a word using these letters:", str(self.choices))
+                self.guess()
+    def makeChoices(self):
+        while True:
+            if self.stop==True: break
+            self.word = ""
+            self.choices=self.getLetters(self.length)
+            self.choiceList=self.choices.split("\n")[1:]
+            self.makeWord()
     def play(self):
-        self.mode=int(input("Do you want to be the WORD-MAKER (1) " \
-                        "or the GUESSER (2)? "))
-        if self.mode==1:
-            self.wordMaker()
-        else:
-            self.guesser()
-
-
+        while True:
+            self.mode = input("Type '.' to quit or press enter to play")
+            if self.mode == ".":
+                print("Your score is", str(self.score)+"/"+str(self.iScore))
+                break
+            else:
+                self.length = int(input("How long do you want the word to be? "))
+                self.stop=False
+                print("Finding a valid "+str(self.length)+"-letter word...")
+                self.makeChoices()
+# Play the game
 g=Game()
 g.play()
