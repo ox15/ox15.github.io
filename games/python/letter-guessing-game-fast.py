@@ -1,6 +1,5 @@
 import random
 import sys
-import string
 """
 Letter Guessing Game
 """
@@ -8,8 +7,10 @@ Letter Guessing Game
 class Game(object):
     def __init__(self):
         # Split a string of uppercase letters into a list.
-        self.score = 20
-        self.iScore = 20
+        self.stop = False
+        self.newWord = True
+        self.score = 0
+        self.iScore = 0
         self.vowels = "A,E,I,O,U".split(",")
         self.cons = "B,C,D,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,X,Y,Z".split(",")
         self.WORDLIST_FILENAME = "words.txt"
@@ -27,35 +28,50 @@ class Game(object):
                 self.wordList.append(line.strip())
             print("  ", len(self.wordList), "words loaded.")
 
-    def getLetters(self, length):
-        """Returns a string of letters used to make a word."""
+    def getScore(self):
+        if self.score > 0:
+            print("Your score is", str(self.score))
+        else:
+            print("You have 0 points. Game over.")
+            self.stop=True
+
+    def getWord(self, length):
         self.word = random.choice(self.wordList)
         while True:
             if len(self.word) == length:
                 print("Found", self.word)
+                self.makeChoices()
                 break
             elif len(self.word) != length:
                 print(self.word, "is not valid")
                 self.word = random.choice(self.wordList)
         #print(self.word)
-        wordChoices=""
-        for i in range(0,length):
+
+
+
+    def makeChoices(self):
+        self.wordChoices=""
+        for i in range(0,self.length):
             if self.word[i] in self.cons:
                 self.letterChoices = self.word[i] + \
                 random.choice(self.vowels) + random.choice(self.cons)
             elif self.word[i] in self.vowels:
                 self.letterChoices = self.word[i] + \
                 random.choice(self.cons) + random.choice(self.cons)
-            wordChoices=wordChoices+"\n"+''.join(sorted(self.letterChoices))
-        print("Word choices\n"+wordChoices)
+            self.wordChoices = self.wordChoices \
+            +"\n"+''.join(sorted(self.letterChoices))
+        print("Word choices\n"+self.wordChoices)
+        self.guess()
 
     def guess(self):
         while True:
+            if self.stop == True: break
             guess = str(input("Enter your guess: ")).upper()
             if guess == self.word:
                 print("You guessed right, the word was "+self.word)
                 self.score += 3
-                print("Your score is "+str(self.score)+"/"+str(self.iScore))
+                self.getScore()
+
                 break
             elif guess==".":
                 print("The word was "+self.word)
@@ -64,42 +80,21 @@ class Game(object):
             else:
                 print("No, try again")
                 self.score -= 1
-                print("Your score is", str(self.score)+"/"+str(self.iScore))
+                self.getScore()
 
-    def makeWord(self):
-        for i in range(self.length):
-            if self.stop==True: break
-            for j in range(len(self.choiceList)-1, -1, -1):
-                letterChoices = self.choiceList[j]
-                #letterChoices = random.choice(self.choiceList)
-                letter=random.choice(letterChoices)
-            self.word=self.word+letter
-            self.choiceList.remove(letterChoices)
-            i += 1
-            if len(self.word)==self.length and self.word in self.wordList:
-                i=0
-                print("The computer's word is "+ self.word)
-                print("The computer found a word using these letters:", str(self.choices))
-                self.guess()
-
-    def makeChoices(self):
-        self.word = ""
-        self.choices=self.getLetters(self.length)
-        self.choiceList=self.choices.split("\n")[1:]
-        self.makeWord()
 
     def play(self):
-        while True:
-            self.mode = "."#input("Type '.' to quit or press enter to play")
-            if self.mode == ".":
-                print("Your score is", str(self.score)+"/"+str(self.iScore))
+        while self.stop == False:
+            mode = input("Type '.' to quit or press enter to play")
+            if mode == ".":
+                self.getScore()
                 break
             else:
                 self.length = int(input("How long do you want the word to be? "))
                 self.stop=False
                 print("Finding a valid "+str(self.length)+"-letter word...")
-                while self.stop != True:
-                    self.makeChoices()
+                while self.stop == False:
+                    self.getWord(self.length)
 # Play the game
 g=Game()
 g.play()
