@@ -1,10 +1,8 @@
 import random
 import sys
+import string
 """
 Letter Guessing Game
-"""
-"""
-TODO:
 """
 
 class Game(object):
@@ -31,13 +29,25 @@ class Game(object):
 
     def getLetters(self, length):
         """Returns a string of letters used to make a word."""
-        self.wordChoices = ""
-        for i in range(length):
-            self.letterChoices = random.choice(self.vowels) + \
+        self.word = random.choice(self.wordList)
+        while True:
+            if len(self.word) == length:
+                print("Found", self.word)
+                break
+            elif len(self.word) != length:
+                print(self.word, "is not valid")
+                self.word = random.choice(self.wordList)
+        #print(self.word)
+        wordChoices=""
+        for i in range(0,length):
+            if self.word[i] in self.cons:
+                self.letterChoices = self.word[i] + \
+                random.choice(self.vowels) + random.choice(self.cons)
+            elif self.word[i] in self.vowels:
+                self.letterChoices = self.word[i] + \
                 random.choice(self.cons) + random.choice(self.cons)
-            self.wordChoices = self.wordChoices + "\n" + self.letterChoices
-            i += 1
-        return self.wordChoices
+            wordChoices=wordChoices+"\n"+''.join(sorted(self.letterChoices))
+        print("Word choices\n"+wordChoices)
 
     def guess(self):
         while True:
@@ -80,7 +90,7 @@ class Game(object):
 
     def play(self):
         while True:
-            self.mode = input("Type '.' to quit or press enter to play")
+            self.mode = "."#input("Type '.' to quit or press enter to play")
             if self.mode == ".":
                 print("Your score is", str(self.score)+"/"+str(self.iScore))
                 break
