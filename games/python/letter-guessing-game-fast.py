@@ -8,9 +8,9 @@ class Game(object):
     def __init__(self):
         # Split a string of uppercase letters into a list.
         self.stop = False
-        self.newWord = True
-        self.score = 0
-        self.iScore = 0
+        self.guessAgain=False
+        self.length = 4
+        self.score = 5
         self.vowels = "A,E,I,O,U".split(",")
         self.cons = "B,C,D,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,X,Y,Z".split(",")
         self.WORDLIST_FILENAME = "words.txt"
@@ -36,10 +36,20 @@ class Game(object):
             self.stop=True
 
     def getWord(self, length):
+        if self.guessAgain == False:
+            try: self.length = int(input("How long do you want the word to be? "))
+            except ValueError: self.length=3
+        print(self.length)
+        self.stop=False
+        print("Finding a valid "+str(self.length)+"-letter word...")
+        print(self.length)
         self.word = random.choice(self.wordList)
+        print(self.length)
         while True:
+            print(self.length)
             if len(self.word) == length:
                 print("Found", self.word)
+                print(self.length)
                 self.makeChoices()
                 break
             elif len(self.word) != length:
@@ -71,12 +81,22 @@ class Game(object):
                 print("You guessed right, the word was "+self.word)
                 self.score += 3
                 self.getScore()
+                mode = int(input("Do you want to guess a "+str(self.length)+
+                             "-letter word (1) or guess another word (2) or "
+                             "quit (0) "))
+                if mode == 1:
+                    break
+                elif mode == 2:
+                    self.guessAgain=True
+                    self.length=input("How long should the word be? ")
+                    self.getWord(self.length)
 
-                break
+                elif mode == 0:
+                    self.stop = True
             elif guess==".":
                 print("The word was "+self.word)
                 self.stop=True
-                break
+                self.play()
             else:
                 print("No, try again")
                 self.score -= 1
@@ -90,11 +110,7 @@ class Game(object):
                 self.getScore()
                 break
             else:
-                self.length = int(input("How long do you want the word to be? "))
-                self.stop=False
-                print("Finding a valid "+str(self.length)+"-letter word...")
-                while self.stop == False:
-                    self.getWord(self.length)
+                self.getWord(self.length)
 # Play the game
 g=Game()
 g.play()
