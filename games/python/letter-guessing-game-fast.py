@@ -8,7 +8,6 @@ class Game(object):
     def __init__(self):
         # Split a string of uppercase letters into a list.
         self.stop = False
-        self.guessAgain=False
         self.length = 4
         self.score = 5
         self.vowels = "A,E,I,O,U".split(",")
@@ -36,26 +35,20 @@ class Game(object):
             self.stop=True
 
     def getWord(self, length):
-        if self.guessAgain == False:
-            try: self.length = int(input("How long do you want the word to be? "))
-            except ValueError: self.length=3
+        try: self.length = int(input("How long do you want the word to be? "))
+        except ValueError: self.length=3
         print(self.length)
         self.stop=False
         print("Finding a valid "+str(self.length)+"-letter word...")
-        print(self.length)
+        print("Word length is", self.length)
         self.word = random.choice(self.wordList)
-        print(self.length)
         while True:
             print(self.length)
             if len(self.word) == length:
-                print("Found", self.word)
-                print(self.length)
-                self.makeChoices()
-                break
+                return self.word
             elif len(self.word) != length:
                 print(self.word, "is not valid")
                 self.word = random.choice(self.wordList)
-        #print(self.word)
 
 
 
@@ -81,18 +74,7 @@ class Game(object):
                 print("You guessed right, the word was "+self.word)
                 self.score += 3
                 self.getScore()
-                mode = int(input("Do you want to guess a "+str(self.length)+
-                             "-letter word (1) or guess another word (2) or "
-                             "quit (0) "))
-                if mode == 1:
-                    break
-                elif mode == 2:
-                    self.guessAgain=True
-                    self.length=input("How long should the word be? ")
-                    self.getWord(self.length)
-
-                elif mode == 0:
-                    self.stop = True
+                self.play()
             elif guess==".":
                 print("The word was "+self.word)
                 self.stop=True
@@ -110,7 +92,28 @@ class Game(object):
                 self.getScore()
                 break
             else:
-                self.getWord(self.length)
-# Play the game
-g=Game()
-g.play()
+                self.word = self.getWord(self.length)
+                print("Found", self.word)
+                print("Word length is", self.length)
+                self.makeChoices()
+
+
+
+class TestGame(object):
+    def testGetWord(self):
+        test=Game()
+        word=test.getWord(3)
+        if len(word) != 3:
+            print("Word length is "+str(len(word))+", not 3")
+            return False
+        print("PASS: "+word+" is "+str(len(word))+" letters long")
+        return True
+
+#t=TestGame()
+success = True #t.testGetWord()
+
+if success:
+
+    # Play the game
+    g=Game()
+    g.play()
