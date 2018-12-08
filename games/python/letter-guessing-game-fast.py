@@ -97,7 +97,7 @@ class Game(object):
                 print("Word length is", self.length)
                 self.makeChoices()
 
-
+g=Game()
 
 class TestGame(object):
     def testGetWord(self):
@@ -108,12 +108,33 @@ class TestGame(object):
             return False
         print("PASS: "+word+" is "+str(len(word))+" letters long")
         return True
+    def testGetWord2(self):
+        test=Game()
+        self.length=3
+        self.stop=False
+        print("Word length is", self.length)
+        self.word = random.choice(g.wordList)
+        while True:
+            print(self.length)
+            if len(self.word) == self.length:
+                return True
+            elif len(self.word) != self.length:
+                print(self.word, "is not valid")
+                self.word = random.choice(g.wordList)
 
-#t=TestGame()
-success = True #t.testGetWord()
+
+
+
+t=TestGame()
+success = t.testGetWord2()
 
 if success:
-
     # Play the game
+    print("Success!")
     g=Game()
     g.play()
+else:
+    print("FAIL: Testing getWord(length) failed!")
+
+g=Game()
+g.play()
