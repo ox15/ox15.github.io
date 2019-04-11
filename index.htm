@@ -20,14 +20,13 @@
     <div id="google_translate_element"></div>
 
     <div class="tooltip">
-        <h1><a href="map/map.html" accesskey="m">Samuel's Pages</a></h1>
-        <span class="tooltiptext">Click or press Alt-M to go to the site map</span>
+        <h1><a href="map/map.html" accesskey="m" title="Click here or press Alt-M to go to the site map">Samuel's Pages</a></h1>
     </div>
     <div class="news">
         <h2>News</h2>
         <ul>
             <li>
-                <p>Check out <a href="games/war/index.htm">the Python games page</a>!</p>
+                <p>Check out <a href="games/python/index.htm">the Python games page</a>!</p>
             </li>
             <li>
                 <p>Do you like pen-and-paper games? Check out <a href="games/ultimate_tic-tac-toe/index.htm">Ultimate Tic-Tac-Toe</a>!</p>
@@ -35,7 +34,6 @@
         </ul>
 
     </div>
-    <p>Links that look like an <button class="btn-orange">orange button</button> are links to new pages. These links will have the "new" status until a new link is added.</p>
     <nav>
         <ul>
             <li><a href="tech/index.htm" accesskey="t">Tech page (English only) [t]</a></li>
@@ -46,84 +44,11 @@
             <li><a href="adventure/index.htm" accesskey="c">Choose-your-own-adventure stories [c]</a></li>
         </ul>
     </nav>
-
-    <main id="main_content">
-        <details>
-            <summary>Are you tired of listening to the same boring radio station? Here are some great ones.</summary>
-            <p> To go to their website, just click on the station's name. To listen to the station, click the link in the "Listen now" column. or use the access keys 1-5. (press Alt-1 to listen to Family Life, Alt-2 for K-LOVE, etc.) Family Life has <a href="http://fln.org/one">more streams</a>. If you like upbeat music, listen to <a target="_blank" href="http://fln.org/one?station=resound" accesskey="r">Resound [r]</a>.</p><br>
-            <p style="color: green">Players in green start automatically</p>
-            <table>
-                <tr>
-                    <th>Where you live</th>
-                    <th>Station</th>
-                    <th>Frequency</th>
-                    <th>Style</th>
-                    <th>Listen online</th>
-                </tr>
-                <tr>
-                    <td>West-central NY and north PA</td>
-                    <td><a target="_blank" href="http://fln.org">Family Life</a></td>
-                    <td>Various</td>
-                    <td>Christian music and programs like <a href="http://whitsend.org">Adventures in Odyssey</a></td>
-                    <td><button onclick="openPlayer('http://fln.org/one?station=fln')" accesskey="1" style="color:green">Listen to Family Life [1]</button></td>
-                </tr>
-                <tr>
-                    <td>United States</td>
-                    <td>
-                        <a target="_blank" href="http://klove.com">K-LOVE</a>
-                    </td>
-                    <td>Various</td>
-                    <td>Christian music</td>
-                    <td><button onclick="openPlayer('https://klove.com/listen/player')" accesskey="2">Listen to K-LOVE [2]</button></td>
-                </tr>
-                <tr>
-                    <td>United States</td>
-                    <td><a target="_blank" href="http://air1.com/">Air1</a></td>
-                    <td>Various</td>
-                    <td>Popular Christian music, and Christian rap and rock</td>
-                    <td><button onclick="openPlayer('https://air1.com/listen/player.aspx')" accesskey="3">Listen to Air1 [3]</button></td>
-                </tr>
-                <tr>
-                    <td>Tegucigalpa, HN</td>
-                    <td><a target="_blank" href="http://verticalfmhn.com/" accesskey="4">VerticalFM [4]</a></td>
-                    <td>100.9 MHz</td>
-                    <td>Christian music in English and Spanish</td>
-                    <td>Click the play button to listen</td>
-                </tr>
-                <tr>
-                    <td>Tegucigalpa, HN</td>
-                    <td><a target="_blank" href="http://stereoluz.com/v2/">Stereo Luz</a></td>
-                    <td>103.7 MHz</td>
-                    <td>Christian music in Spanish, with music in English from 7-8 PM</td>
-                    <td><button onclick="openPlayer('https://tunein.com/radio/Stereo-Luz-1037-s7081/')" accesskey="4" style="color:green">Listen to Stereo Luz [4]</button></td>
-                </tr>
-                <tr>
-                    <td>Tegucigalpa, HN</td>
-                    <td><button onclick="openPlayer('https://tunein.com/radio/FM1029-s228341/')" accesskey="6" style="color:green">Listen to Alternativa [6]</button></td>
-                    <td>102.9 MHz</td>
-                    <td>Christian music in Spanish and English</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Tegucigalpa, HN</td>
-                    <td>Kairos</td>
-                    <td>90.9 MHz</td>
-                    <td>Worship music in Spanish, and other styles of music in English</td>
-                    <td></td>
-                </tr>
-            </table>
-        </details>
-        <br>
-    </main>
+    <br><br>
     <details>
         <summary>What do the letters in [brackets] mean?</summary>
         <div>If a link has a letter in [brackets] after it, it means that that link has an <a href="https://www.w3schools.com/tags/att_global_accesskey.asp#table2" target="_blank">access key</a> associated with it. To click a link using an access key, hold Alt, then press that key on the keyboard. If you're using Firefox, hold Alt+Shift then press the key.</div>
     </details>
-    <script>
-    function openPlayer(url="") {
-        window.open(url, "_blank", "width=730,height=570");
-    }
-    </script>
 </body>
 
 </html>
