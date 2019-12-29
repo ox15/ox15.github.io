@@ -106,7 +106,7 @@ function loadStory(filename) {
         
     })
         .fail(function( jqxhr, textStatus, error ) {
-            $("#error").text("Error: " + filename + ": Check the console (press F12) for more information.");
+            $("#error").text("Error: " + filename + ": Can't access JSON data from a local file");
             console.log(error);
             $("#error").fadeIn();
         });

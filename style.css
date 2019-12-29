@@ -1,28 +1,27 @@
-body{font-family:sans-serif}
-.btn, nav a, .dropbtn {/* Make an element with the class="btn" attribute look like a button */
-    background-color: #4CAF50;
-    border: 1px solid #4caf50;
-    color: white;
+body{font-family:sans-serif} /* Sans serif (arial) fonts everywhere */
+
+.btn, nav a, .dropbtn {
+    /* Make an element with the class="btn" attribute look like a button */
+    background-color: black;
+    color: yellow;
     font-size: 16px;
     padding: 5px;
     text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
 }
 .btn-orange {
     background-color: orangered;
     border: 1px solid orangered;
-    color: white;
+    color: blue;
     font-size: 16px;
     padding: 5px;
     text-decoration: none;
 }
 .btn:hover, .btn:focus, nav a:hover, nav a:focus, .dropbtn:hover, .dropbtn:focus a:hover {
-    background-color: #ffffff;
-    color: #4CAF50;
+    background-color: yellow;
+    color: black;
 }
-.btn-orange:hover {
-    background-color: white;
-    color: orangered;
-}
+
 .goog-te-gadget-simple {
     margin-bottom: 10px;
 }
@@ -48,6 +47,9 @@ button {
     padding: 10px;
     list-style: none;
 }
+
+/* Start adventure styles */
+
 .inactive {
     background-color: white;
     color: gray; 
@@ -65,17 +67,15 @@ button {
     background-color: black;
     color: red;
 }
-.change {
-    background-color: blue;
-    color: yellow;
-}
 
-.news {
+/* End adventure styles */
+
+.news { /* News on main page */
     text-align: left;
     border: 2px solid black;
 }
 
-#btn0 { /* What actually happened */
+#btn0 { /* What actually happened in adventures */
     background-color: #4caf50;
     color: white;
 }
@@ -95,24 +95,26 @@ button {
     z-index: 1;
 }
 .dropdown-content li {
-    background-color: #4caf50;
-    color: white;
+    background-color: black;
+    color: yellow;
     font-weight: normal;
     list-style-type: none;
     padding:0.3em;
 }
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: white;
+    color: yellow;
     text-decoration: none;
 }
-.dropdown-content a:hover{border: 1px solid black}
+/* Border that appears when hovering */
+.dropdown-content a:hover{border: 1px solid yellow}
 
 .show {display:list-item;} /* NEEDS this to show the menu correctly */
+
 #error {
     color: red;
 }
 
 #google_translate_element {
-    z-index: 10;
+    z-index: 10; /* Put it on top of everything */
 }
