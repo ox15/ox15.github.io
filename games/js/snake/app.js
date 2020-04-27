@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		scoreDisplay.innerText = score
 		intervalTime = 1000
 		currentSnake = [2,1,0]
+		currentSnake.forEach(index => squares[index].classList.add('snake'))
 		randomApple()
 		currentIndex = 0
-		currentSnake.forEach(index => squares[index].classList.add('snake'))
 		interval = setInterval(moveOutcomes, intervalTime)
 	}
 
