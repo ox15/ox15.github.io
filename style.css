@@ -1,4 +1,6 @@
-body{font-family:sans-serif} /* Sans serif (arial) fonts everywhere */
+body {
+    font-family:sans-serif;
+} 
 
 .btn, nav a, .dropbtn {
     /* Make an element with the class="btn" attribute look like a button */
@@ -36,6 +38,8 @@ nav ul li {
 }
 main {
     clear: left;
+    background-color: white;
+    padding: 0 0 15em 1em;
 }
 button {
     padding: 0.5em;
@@ -47,6 +51,14 @@ button {
     padding: 10px;
     list-style: none;
 }
+
+footer {
+    padding: 1em;
+    width: 100%;
+    min-height: 4em;
+    
+}
+
 
 /* Start adventure styles */
 
