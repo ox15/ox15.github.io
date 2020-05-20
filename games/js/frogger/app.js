@@ -36,6 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		win()
 	}
 	
+	function moveFrogForward() {
+		if (currentIndex % width !== 0) {
+			squares[currentIndex].classList.remove('frog')
+			currentIndex -= 1
+			squares[currentIndex].classList.add('frog')
+		}
+		
+		lose()
+		win()
+	}
+
 	function autoMoveCars() {
 		carsLeft.forEach(carLeft => moveCarLeft(carLeft))
 		carsRight.forEach(carRight => moveCarRight(carRight))
@@ -187,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else {
 			timerId = setInterval(movePieces, 1000)
 			document.addEventListener('keyup', moveFrog)
+			document.addEventListener('touchstart', moveFrogForward);
 		}
 	})
 
