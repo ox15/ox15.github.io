@@ -16,9 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	squares[currentIndex].classList.add('frog')
 
 	function moveFrog(e) {
+		console.log(e.keyCode)
 		squares[currentIndex].classList.remove('frog')
 		switch(e.keyCode) {
-			case 37:
+			case 37: //west
 				if(currentIndex % width !== 0) currentIndex -= 1
 				break
 			case 38:
@@ -36,14 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		win()
 	}
 	
+	function moveFrogForward() {
+		if (currentIndex - width >= 0) {
+			squares[currentIndex].classList.remove('frog')
+			currentIndex -= width
+			squares[currentIndex].classList.add('frog')
+		}
+		
+		lose()
+		win()
+	}
+
 	function autoMoveCars() {
 		carsLeft.forEach(carLeft => moveCarLeft(carLeft))
 		carsRight.forEach(carRight => moveCarRight(carRight))
 	}
 
 	function moveCarLeft(carLeft) {
-		console.log("car left: ")
-		console.log(carLeft)
 		switch(true) {
 			case carLeft.classList.contains('c1'):
 				carLeft.classList.remove('c1')
@@ -61,8 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function moveCarRight(carRight) {
-		console.log("car right")
-		console.log(carRight)
 		switch(true) {
 			case carRight.classList.contains('c1'):
 				carRight.classList.remove('c1')
@@ -187,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else {
 			timerId = setInterval(movePieces, 1000)
 			document.addEventListener('keyup', moveFrog)
+			document.addEventListener('touchstart', moveFrogForward);
 		}
 	})
 
