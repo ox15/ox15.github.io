@@ -11,24 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	let currentIndex = 76
 	let currentTime = 20
 	let timerId
+	let gameState = 1
 
 
 	squares[currentIndex].classList.add('frog')
 
 	function moveFrog(e) {
-		console.log(e.keyCode)
 		squares[currentIndex].classList.remove('frog')
 		switch(e.keyCode) {
 			case 37: //west
 				if(currentIndex % width !== 0) currentIndex -= 1
 				break
-			case 38:
+			case 38: //north
 				if(currentIndex - width >= 0) currentIndex -= width
 				break
-			case 39:
+			case 39: //east
 				if(currentIndex % width < width -1) currentIndex += 1
 				break
-			case 40:
+			case 40: // south
 				if(currentIndex + width < width*width) currentIndex += width
 				break
 		}
@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			squares[currentIndex].classList.remove('frog')
 			clearInterval(timerId)
 			document.removeEventListener('keyup', moveFrog)
+			gameState = 0
 		}
 	}
 
@@ -160,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			squares[currentIndex].classList.remove('frog')
 			clearInterval(timerId)
 			document.removeEventListener('keyup', moveFrog)
+			gameState = 0
 		}
 	}
 
@@ -190,12 +192,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	startBtn.addEventListener('click', () => {
-		if(timerId) {
-			clearInterval(timerId)
-		} else {
+		if(gameState === 1) {
 			timerId = setInterval(movePieces, 1000)
 			document.addEventListener('keyup', moveFrog)
 			document.addEventListener('touchstart', moveFrogForward);
+			gameState = 2
+
+			
+		}  else if (gameState === 2){
+			clearInterval(timerId)
+			gameState = 1
+		} else if (gameState === 0) {
+			window.location.reload()
 		}
 	})
 
