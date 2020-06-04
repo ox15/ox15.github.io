@@ -1,5 +1,5 @@
 *~
 *.session
 node_modules
-package*
 *eslint*
+package*.json

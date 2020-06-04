@@ -1,27 +1,5 @@
 body {
-    font-family:sans-serif;
-} 
-
-.btn, nav a, .dropbtn {
-    /* Make an element with the class="btn" attribute look like a button */
-    background-color: black;
-    color: yellow;
-    font-size: 16px;
-    padding: 5px;
-    text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
-}
-.btn-orange {
-    background-color: orangered;
-    border: 1px solid orangered;
-    color: blue;
-    font-size: 16px;
-    padding: 5px;
-    text-decoration: none;
-}
-.btn:hover, .btn:focus, nav a:hover, nav a:focus, .dropbtn:hover, .dropbtn:focus a:hover {
-    background-color: yellow;
-    color: black;
+    margin-left: 8px;
 }
 
 .goog-te-gadget-simple {
@@ -31,19 +9,19 @@ body {
 nav ul {
     list-style-type: none;
 }
+
 nav ul li { 
     float: left;
     margin-bottom: 1.0em;
     margin-right: 0.5em;
 }
+
 main {
     clear: left;
     background-color: white;
     padding: 0 0 15em 1em;
 }
-button {
-    padding: 0.5em;
-}
+
 #log li {
     border: 1px solid gray;
     font-weight: bolder;
@@ -51,14 +29,6 @@ button {
     padding: 10px;
     list-style: none;
 }
-
-footer {
-    padding: 1em;
-    width: 100%;
-    min-height: 4em;
-    
-}
-
 
 /* Start adventure styles */
 
@@ -87,46 +57,9 @@ footer {
     border: 2px solid black;
 }
 
-#btn0 { /* What actually happened in adventures */
-    background-color: #4caf50;
-    color: white;
-}
-/* The container div - needed to position the dropdown content */
-.dropdown {
-    display: inline-block;
-    position: relative;   
-}
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    background-color: white;
-    display: none;
-    margin-top: 0px;
-    margin-left: 0px;
-    
-    position:absolute;
-    z-index: 1;
-}
-.dropdown-content li {
-    background-color: black;
-    color: yellow;
-    font-weight: normal;
-    list-style-type: none;
-    padding:0.3em;
-}
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: yellow;
-    text-decoration: none;
-}
-/* Border that appears when hovering */
-.dropdown-content a:hover{border: 1px solid yellow}
-
-.show {display:list-item;} /* NEEDS this to show the menu correctly */
-
-#error {
-    color: red;
-}
-
 #google_translate_element {
     z-index: 10; /* Put it on top of everything */
+}
+.topmargin a {
+    margin-top: 4px;
 }

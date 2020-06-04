@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import random, sys # random for random cards; sys for the enter key
 def war(): # What do we do in a war?
     print("WAR!") # Show that we're in a war
@@ -10,9 +10,13 @@ def war(): # What do we do in a war?
     else: war() # If we have the same card, have another war!
 
 myScore=0; yourScore=0; wars=0; cards=13; rounds=10 # Set default score, number of wars, cards, and rounds (in case we don't type anything in)
-try: rounds=input("How many rounds do you want to play? ")
+try:
+	rounds=input("How many rounds do you want to play? ")
+	rounds = int(rounds)
 except: print("There are 10 rounds.")
-try: cards=input("How many cards are there? (default is 13; higher numbers mean less chance of a war) ")
+try:
+	cards=input("How many cards are there? (default is 13; higher numbers mean less chance of a war) ")
+	cards = int(cards)
 except: print("There are 13 cards.")
 
 print("Press enter to play your card") # Game on!
@@ -38,4 +42,4 @@ print("SCORES\n==========\nMe:   "+str(myScore)+"\nYou:  "+str(yourScore)+"\nWar
 if myScore>yourScore: print("I won the game by "+str(myScore-yourScore)+" rounds.")
 elif yourScore>myScore: print("You won the game by "+str(yourScore-myScore)+" rounds!")
 else: print("We tied.")
-print("\nCheck out my website! https://jcadcell.github.io\n")
+print("\nCheck out my website! https://samueltimes.com\n")
