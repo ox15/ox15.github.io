@@ -30,28 +30,6 @@ main {
     list-style: none;
 }
 
-/* Start adventure styles */
-
-.inactive {
-    background-color: white;
-    color: gray; 
-}
-.active {
-    background-color: #e6ffe6;
-    color: green;
-    border: 1px solid #4caf50;
-}
-.win {
-    background-color: yellow;
-    color: green;
-}
-.lose {
-    background-color: black;
-    color: red;
-}
-
-/* End adventure styles */
-
 .news { /* News on main page */
     text-align: left;
     border: 2px solid black;
