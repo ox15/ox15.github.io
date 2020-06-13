@@ -176,17 +176,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function addScore() {
+		let rows = 0
 		for (currentIndex = 0; currentIndex < 199; currentIndex += GRID_WIDTH) {
 			const row = [currentIndex, currentIndex+1, currentIndex+2, currentIndex+3, currentIndex+4, currentIndex+5, 	currentIndex+6, currentIndex+7, currentIndex+8, currentIndex+9]
 
 			if(row.every(index => squares[index].classList.contains('block2'))) {
-				score += 10
-				lines += 1
-				scoreDisplay.innerHTML = score
-				linesDisplay.innerHTML = lines
-				console.log(score)
-				console.log(lines)
-				console.log(linesDisplay)
+				rows++
+				
 				row.forEach(index => {
 					squares[index].classList.remove('block2') || squares[index].classList.remove('block')
 				})
@@ -195,6 +191,19 @@ document.addEventListener('DOMContentLoaded', () => {
 				squares.forEach(cell => grid.appendChild(cell))
 			}
 		}
+		score += rows*10 + bonus(rows)
+		lines += rows
+
+		scoreDisplay.innerHTML = score
+		linesDisplay.innerHTML = lines
+	}
+
+	function bonus(rows) {
+		let rowbonus = 0
+		if(rows>1){
+			rowbonus=rows*20
+		}
+		return rowbonus
 	}
 
 })
