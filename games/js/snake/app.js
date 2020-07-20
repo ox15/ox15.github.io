@@ -1,7 +1,40 @@
+// source: https://www.w3schools.com/js/js_cookies.asp
+
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	var expires = "expires="+ d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+
+function getCookie(cname) {
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	for(var i = 0; i <ca.length; i++) {
+	  var c = ca[i];
+	  while (c.charAt(0) == ' ') {
+		c = c.substring(1);
+	  }
+	  if (c.indexOf(name) == 0) {
+		return c.substring(name.length, c.length);
+	  }
+	}
+	return "";
+}
+
+function getHighscore() {
+	let x = getCookie("highscore")
+	alert(x)
+	highscoreDisplay.textContent = x
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	const squares = document.querySelectorAll('.grid div')
 	const scoreDisplay = document.querySelector('span')
 	const startBtn = document.querySelector('.start')
+	const highscoreDisplay = document.querySelector('.high')
 
 	const width = 10
 	let currentIndex = 0
@@ -12,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	let speed = 0.9
 	let intervalTime = 0
 	let interval = 0
+	//let scores = []
 
 	function startGame() {
 		currentSnake.forEach(index => squares[index].classList.remove('snake'))
@@ -26,6 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		randomApple()
 		currentIndex = 0
 		interval = setInterval(moveOutcomes, intervalTime)
+	}
+
+	
+
+	function setNewHighscore() {
+		let oldscore = getCookie("highscore")
+		setCookie("highscore", score, 36500)
 	}
 
 	function moveOutcomes() {
@@ -50,8 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
 			currentSnake.push(tail)
 			randomApple()
 			score++
+			setNewHighscore()
 			scoreDisplay.textContent = score
 			console.log("score " + score + ", snake position " + currentSnake)
+			
+
 			clearInterval(interval)
 			intervalTime = intervalTime * speed
 			interval = setInterval(moveOutcomes, intervalTime)
@@ -64,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	function randomApple() {
 		do {
 			appleIndex = Math.floor(Math.random() * squares.length)
-			console.log(appleIndex)
+			console.log("apple is at: "+appleIndex)
 		} while(squares[appleIndex].classList.contains('snake'))
 		squares[appleIndex].classList.add('apple')
 	}
@@ -88,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	document.addEventListener('keyup', control)
 	startBtn.addEventListener('click', startGame)
-
+	
 
 
 
