@@ -1,42 +1,13 @@
-// source: https://www.w3schools.com/js/js_cookies.asp
 
-function setCookie(cname, cvalue, exdays) {
-	var d = new Date();
-	d.setTime(d.getTime() + (exdays*24*60*60*1000));
-	var expires = "expires="+ d.toUTCString();
-	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-
-function getCookie(cname) {
-	var name = cname + "=";
-	var decodedCookie = decodeURIComponent(document.cookie);
-	var ca = decodedCookie.split(';');
-	for(var i = 0; i <ca.length; i++) {
-	  var c = ca[i];
-	  while (c.charAt(0) == ' ') {
-		c = c.substring(1);
-	  }
-	  if (c.indexOf(name) == 0) {
-		return c.substring(name.length, c.length);
-	  }
-	}
-	return "";
-}
-
-function getHighscore() {
-	let x = getCookie("highscore")
-	alert(x)
-	highscoreDisplay.textContent = x
-}
 
 document.addEventListener('DOMContentLoaded', () => {
 	const squares = document.querySelectorAll('.grid div')
-	const scoreDisplay = document.querySelector('span')
+	const scoreDisplay = document.querySelector('.score')
 	const startBtn = document.querySelector('.start')
 	const highscoreDisplay = document.querySelector('.high')
 
 	const width = 10
+	const HIGHSCORE_KEY = "highscore";
 	let currentIndex = 0
 	let appleIndex = 0
 	let currentSnake = [2,1,0]
@@ -45,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	let speed = 0.9
 	let intervalTime = 0
 	let interval = 0
+	let highScore
 	//let scores = []
 
 	function startGame() {
@@ -62,11 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		interval = setInterval(moveOutcomes, intervalTime)
 	}
 
-	
+	function getHighscore() {
+		var scoreStr = localStorage.getItem(HIGHSCORE_KEY);
+		if (scoreStr == null) highScore = 0;
+		else highScore = parseInt(scoreStr);
+		highscoreDisplay.textContent = highScore
+		console.log("Highscore:"+scoreStr)
+	}
 
 	function setNewHighscore() {
-		let oldscore = getCookie("highscore")
-		setCookie("highscore", score, 36500)
+		if (score > highScore) {
+			highScore = score;
+			localStorage.setItem(HIGHSCORE_KEY, highScore);
+		}
 	}
 
 	function moveOutcomes() {
@@ -92,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			randomApple()
 			score++
 			setNewHighscore()
+			getHighscore()
 			scoreDisplay.textContent = score
 			console.log("score " + score + ", snake position " + currentSnake)
 			
@@ -129,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			direction = +width
 		} 
 	}
+	getHighscore()
 
 	document.addEventListener('keyup', control)
 	startBtn.addEventListener('click', startGame)
