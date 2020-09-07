@@ -6,9 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	const startBtn = document.querySelector('.start')
 	const highscoreDisplay = document.querySelector('.high')
 
+	const downBtn = document.querySelector('.down')
+	const upBtn = document.querySelector('.up')
+	const leftBtn = document.querySelector('.left')
+	const rightBtn = document.querySelector('.right')
+
 	const width = 10
 	const HIGHSCORE_KEY = "highscore";
-	let currentIndex = 0
 	let appleIndex = 0
 	let currentSnake = [2,1,0]
 	let direction = 1
@@ -30,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		currentSnake = [2,1,0]
 		currentSnake.forEach(index => squares[index].classList.add('snake'))
 		randomApple()
-		currentIndex = 0
 		interval = setInterval(moveOutcomes, intervalTime)
 	}
 
@@ -39,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (scoreStr == null) highScore = 0;
 		else highScore = parseInt(scoreStr);
 		highscoreDisplay.textContent = highScore
-		console.log("Highscore:"+scoreStr)
 	}
 
 	function setNewHighscore() {
@@ -74,9 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			setNewHighscore()
 			getHighscore()
 			scoreDisplay.textContent = score
-			console.log("score " + score + ", snake position " + currentSnake)
-			
-
 			clearInterval(interval)
 			intervalTime = intervalTime * speed
 			interval = setInterval(moveOutcomes, intervalTime)
@@ -89,31 +88,46 @@ document.addEventListener('DOMContentLoaded', () => {
 	function randomApple() {
 		do {
 			appleIndex = Math.floor(Math.random() * squares.length)
-			console.log("apple is at: "+appleIndex)
 		} while(squares[appleIndex].classList.contains('snake'))
 		squares[appleIndex].classList.add('apple')
 	}
 
 
 
-
+	function moveDown() {
+		direction = +width
+	}
+	function moveUp() {
+		direction = -width
+	}
+	function moveRight() {
+		direction = 1
+	}
+	function moveLeft() {
+		direction = -1
+	}
 
 
 	function control(e) {
-		if(e.keyCode === 39) {
-			direction = 1
-		} else if (e.keyCode === 38) {
-			direction = -width
-		} else if (e.keyCode === 37) {
-			direction = -1
-		} else if (e.keyCode === 40) {
-			direction = +width
+		if(e.keyCode === 39) { //right
+			moveRight()
+		} else if (e.keyCode === 38) { //up
+			moveUp()
+		} else if (e.keyCode === 37) { //left
+			moveLeft()
+		} else if (e.keyCode === 40) { //down
+			moveDown()
 		} 
 	}
 	getHighscore()
 
 	document.addEventListener('keyup', control)
 	startBtn.addEventListener('click', startGame)
+
+	downBtn.addEventListener("click", moveDown)
+	upBtn.addEventListener('click', moveUp)
+	leftBtn.addEventListener('click', moveLeft)
+	rightBtn.addEventListener('click', moveRight)
 	
 
 
