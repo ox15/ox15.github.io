@@ -18,20 +18,3 @@
 .apple {
 	background-color: purple;
 }
-
-.controller button {
-    padding: 1em 6px 1em 6px;
-}
-
-.controller {
-	width:20%;
-	align-items: center;
-}
-
-.controller .ud {
-	width: 100%;
-}
-
-.controller .lr {
-	width: 48%;
-}

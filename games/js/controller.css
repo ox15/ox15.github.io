@@ -1,0 +1,17 @@
+.controller button {
+    padding: 1em 6px 1em 6px;
+}
+
+.controller {
+	width:200px;
+	align-items: center;
+}
+
+.controller .ud {
+	width: 100%;
+}
+
+.controller .lr {
+	border: 1;
+	width: 49%;
+}
