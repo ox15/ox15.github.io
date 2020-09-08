@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	const scoreDisplay = document.querySelector('.score-display')
 	const linesDisplay = document.querySelector('.lines-display')
 	const displaySquares = document.querySelectorAll('.previous-grid div')
+	
+	const downBtn = document.querySelector('.down')
+	const upBtn = document.querySelector('.up')
+	const leftBtn = document.querySelector('.left')
+	const rightBtn = document.querySelector('.right')
+
 	let squares = Array.from(grid.querySelectorAll('div'))
 	const GRID_WIDTH = 10
 	let currentPosition = 4
@@ -25,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 	document.addEventListener("keydown", control)
+
+	downBtn.addEventListener("click", moveDown)
+	upBtn.addEventListener('click', rotate)
+	leftBtn.addEventListener('click', moveLeft)
+	rightBtn.addEventListener('click', moveRight)
 
 	const lTetromino = [
 		[1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, 2],

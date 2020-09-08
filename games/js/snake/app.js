@@ -94,18 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	function moveDown() {
-		direction = +width
-	}
-	function moveUp() {
-		direction = -width
-	}
-	function moveRight() {
-		direction = 1
-	}
-	function moveLeft() {
-		direction = -1
-	}
+	
 
 
 	function control(e) {
@@ -121,16 +110,26 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	getHighscore()
 
-	document.addEventListener('keyup', control)
-	startBtn.addEventListener('click', startGame)
+	function moveDown() {
+		direction = +width
+	}
+	function moveUp() {
+		direction = -width
+	}
+	function moveRight() {
+		direction = 1
+	}
+	function moveLeft() {
+		direction = -1
+	}
 
 	downBtn.addEventListener("click", moveDown)
 	upBtn.addEventListener('click', moveUp)
 	leftBtn.addEventListener('click', moveLeft)
 	rightBtn.addEventListener('click', moveRight)
+
+	document.addEventListener('keyup', control)
+	startBtn.addEventListener('click', startGame)
+
 	
-
-
-
-
 })
