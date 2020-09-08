@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const grid = document.querySelector('.grid')
 	const startBtn = document.querySelector('button')
 	const scoreDisplay = document.querySelector('.score-display')
+	const highscoreDisplay = document.querySelector('.high')
 	const linesDisplay = document.querySelector('.lines-display')
 	const displaySquares = document.querySelectorAll('.previous-grid div')
 	

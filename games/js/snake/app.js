@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	let intervalTime = 0
 	let interval = 0
 	let highScore
-	//let scores = []
 
 	function startGame() {
 		currentSnake.forEach(index => squares[index].classList.remove('snake'))
@@ -91,11 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		} while(squares[appleIndex].classList.contains('snake'))
 		squares[appleIndex].classList.add('apple')
 	}
-
-
-
-	
-
 
 	function control(e) {
 		if(e.keyCode === 39) { //right
