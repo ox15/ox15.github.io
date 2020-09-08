@@ -19,18 +19,39 @@ document.addEventListener('DOMContentLoaded', () => {
 	let lines = 0
 	let timerId
 	let isGameOver = false
+	let highScore
+	const HIGHSCORE_KEY = "highscore";
 
-	function control(e) {
-		if(e.keyCode === 39) {
-			moveRight()
-		} else if (e.keyCode === 38) {
-			rotate()
-		} else if (e.keyCode === 37) {
-			moveLeft()
-		} else if (e.keyCode === 40) {
-			moveDown()
+	function getHighscore() {
+		var scoreStr = localStorage.getItem(HIGHSCORE_KEY);
+		if (scoreStr == null) highScore = 0;
+		else highScore = parseInt(scoreStr);
+		highscoreDisplay.textContent = highScore
+	}
+
+	function setNewHighscore() {
+		if (score > highScore) {
+			highScore = score;
+			localStorage.setItem(HIGHSCORE_KEY, highScore);
 		}
 	}
+
+	function control(e) {
+		if(!isGameOver) {
+			if(e.keyCode === 39) {
+				moveRight()
+			} else if (e.keyCode === 38) {
+				rotate()
+			} else if (e.keyCode === 37) {
+				moveLeft()
+			} else if (e.keyCode === 40) {
+				moveDown()
+			}
+		}
+		
+	}
+	getHighscore()
+	console.log("got highscore after control")
 	document.addEventListener("keydown", control)
 
 	downBtn.addEventListener("click", moveDown)
@@ -204,6 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		}
 		score += rows*10 + bonus(rows)
+		setNewHighscore()
+		getHighscore()
 		lines += rows
 
 		scoreDisplay.innerHTML = score
