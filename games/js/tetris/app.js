@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	let currentPosition = 4
 	let currentIndex = 0
 	let score = 0
-	let lines = 0
+	var rows = 0
 	let timerId
 	let isGameOver = false
 	let highScore
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function addScore() {
-		let rows = 0
+		rows = 0
 		for (currentIndex = 0; currentIndex < 199; currentIndex += GRID_WIDTH) {
 			const row = [currentIndex, currentIndex+1, currentIndex+2, currentIndex+3, currentIndex+4, currentIndex+5, 	currentIndex+6, currentIndex+7, currentIndex+8, currentIndex+9]
 
@@ -227,10 +227,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		score += getScore(rows)
 		setNewHighscore()
 		getHighscore()
-		lines += rows
 
 		scoreDisplay.innerHTML = score
-		linesDisplay.innerHTML = lines
+		linesDisplay.innerHTML = rows
 	}
 
 	function getScore(rows) {
