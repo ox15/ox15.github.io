@@ -1,12 +1,30 @@
 const square = document.querySelectorAll(".square")
 const mole = document.querySelectorAll('.mole')
 const timeLeft = document.querySelector('#time-left')
-let score = document.querySelector('#score')
+const highscoreDisplay = document.querySelector('.high')
+const HIGHSCORE_KEY = "whack-a-mole";
+let highScore
+const scoreDisplay = document.querySelector('#score')
 let hitPosition = -1
-
-let result = 0
+let score = 0
 let currentTime = timeLeft.textContent
 let canScore = true
+
+getHighscore()
+
+function getHighscore() {
+	var scoreStr = localStorage.getItem(HIGHSCORE_KEY);
+	if (scoreStr == null) highScore = 0;
+	else highScore = parseInt(scoreStr);
+	highscoreDisplay.textContent = highScore
+}
+
+function setNewHighscore() {
+	if (score > highScore) {
+		highScore = score;
+		localStorage.setItem(HIGHSCORE_KEY, highScore);
+	}
+}
 
 function randomSquare() {
 	square.forEach(className => {
@@ -24,9 +42,11 @@ function randomSquare() {
 
 square.forEach(id => {
 	id.addEventListener('mouseup', () => {
-		if(id.id === hitPosition) {
-			result += 1
-			score.textContent = result
+		if(id.id === hitPosition && canScore) {
+			score++
+			setNewHighscore()
+			getHighscore()
+			scoreDisplay.textContent = score
 		}
 	})
 })
@@ -44,10 +64,8 @@ function countDown() {
 
 	if(currentTime === 0) {
 		clearInterval(timerId)
-		alert('Game Over! Your score is ' + result)
-		document.getElementsByClassName('grid').style.display = "none"
+		alert('Game Over! Your score is ' + score)
 		canScore = false
-		
 	}
 }
 

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const scoreDisplay = document.querySelector('.score')
 	const startBtn = document.querySelector('.start')
 	const highscoreDisplay = document.querySelector('.high')
+	const HIGHSCORE_KEY = "snake";
 
 	const downBtn = document.querySelector('.down')
 	const upBtn = document.querySelector('.up')
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const rightBtn = document.querySelector('.right')
 
 	const width = 10
-	const HIGHSCORE_KEY = "highscore";
+	
 	let appleIndex = 0
 	let currentSnake = [2,1,0]
 	let direction = 1

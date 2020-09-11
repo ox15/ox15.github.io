@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				squares.forEach(cell => grid.appendChild(cell))
 			}
 		}
-		score += rows*10 + bonus(rows)
+		score += getScore(rows)
 		setNewHighscore()
 		getHighscore()
 		lines += rows
@@ -233,10 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		linesDisplay.innerHTML = lines
 	}
 
-	function bonus(rows) {
+	function getScore(rows) {
 		let rowbonus = 0
 		if(rows>1){
-			rowbonus=rows*20
+			rowbonus=rows*rows*10
 		}
 		return rowbonus
 	}
