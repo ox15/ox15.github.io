@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Space invaders</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../controller.css">
   <script src="app.js" charset="utf-8"></script>
 </head>
 
 <body>
 
-  <h3>Score:<span id="result"></span></h3>
+  <h3>Score:<span id="result"></span>, High: <span class="high"></span></h3>
   <h3>Score with shot penalty:<span id="shotscore"></span></h3>
 
   <div class="grid">
@@ -241,6 +242,12 @@
     <div></div>
     <div></div>
     <div></div>
+  </div>
+
+  <div class="controller">
+    <button class="ud up">shoot</button><br>
+    <button class="lr left">left</button>
+    <button class="lr right">right</button><br>
   </div>
 
   <br><a href="https://forms.gle/HNRY3sKNcGsFbPsB9" target="_blank">Report feedback and bugs</a>

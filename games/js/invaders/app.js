@@ -2,15 +2,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	const squares = document.querySelectorAll('.grid div')
 	const resultDisplay = document.querySelector('#result')
 	const resultDisplay2 = document.querySelector('#shotscore')
+	const highscoreDisplay = document.querySelector('.high')
+	const HIGHSCORE_KEY = "invaders";
+	let highScore
 	let width = 15
 	let currentShooterIndex = 202
 	let currentInvaderIndex = 0
 	let alienInvadersTakenDown = []
-	let result = 0
+	let score = 0
 	let shotScore = 0
 	let direction = 1
 	let invaderId
 	let gameOver = false
+
+	const upBtn = document.querySelector('.up')
+	const leftBtn = document.querySelector('.left')
+	const rightBtn = document.querySelector('.right')
 
 	const alienInvaders = [
 		0,1,2,3,4,5,6,7,8,9,
@@ -22,19 +29,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	squares[currentShooterIndex].classList.add('shooter')
 
+	function getHighscore() {
+		var scoreStr = localStorage.getItem(HIGHSCORE_KEY);
+		if (scoreStr == null) highScore = 0;
+		else highScore = parseInt(scoreStr);
+		if(highScore == 30) {
+			highScore = 0
+			localStorage.setItem(HIGHSCORE_KEY, highScore);
+		}
+		highscoreDisplay.textContent = highScore
+	}
+
+	function setNewHighscore() {
+		if (score > highScore) {
+			highScore = score;
+			localStorage.setItem(HIGHSCORE_KEY, highScore);
+		}
+	}
+
+	function moveLeft() {
+		squares[currentShooterIndex].classList.remove('shooter')
+		if(currentShooterIndex % width !== 0) currentShooterIndex -= 1
+		squares[currentShooterIndex].classList.add('shooter')
+
+	}
+	function moveRight() {
+		squares[currentShooterIndex].classList.remove('shooter')
+		if(currentShooterIndex % width < width -1) currentShooterIndex += 1
+		squares[currentShooterIndex].classList.add('shooter')
+	}
+
 	function moveShooter(e) {
 		if(gameOver) return
 
-		squares[currentShooterIndex].classList.remove('shooter')
+		
 		switch(e.keyCode) {
 			case 37:
-				if(currentShooterIndex % width !== 0) currentShooterIndex -= 1
+				moveLeft()
 				break
 			case 39:
-				if(currentShooterIndex % width < width -1) currentShooterIndex += 1
+				moveRight()
 				break
 		}
-		squares[currentShooterIndex].classList.add('shooter')
+		
 		
 	}
 
@@ -108,9 +145,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				const alienTakenDown = alienInvaders.indexOf(currentLaserIndex)
 				alienInvadersTakenDown.push(alienTakenDown)
-				result++
+				score++
 				shotScore +=2
-				resultDisplay.textContent = result
+				setNewHighscore()
+				getHighscore()
+				resultDisplay.textContent = score
 				resultDisplay2.textContent = shotScore
 			}
 			if(currentLaserIndex < width) {
@@ -133,5 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 	document.addEventListener('keyup', shoot)
+	upBtn.addEventListener('click', shoot)
+	leftBtn.addEventListener('click', moveLeft)
+	rightBtn.addEventListener('click', moveRight)
+	getHighscore()
 
 })
