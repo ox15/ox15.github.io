@@ -111,14 +111,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		for(let i = 0; i <= alienInvaders.length -1; i++) {
 			if(alienInvaders[i] > (squares.length - (width-1)) && 
                 (alienInvadersTakenDown.length !== alienInvaders)) {
-				resultDisplay.textContent = 'Game Over'
+				alert('Game Over')
 				gameOver = true
 				clearInterval(invaderId)
 			}
 		}
 		if(alienInvadersTakenDown.length === alienInvaders.length) {
-			// supposed to be after 77
-			resultDisplay.textContent = "You Win"
+			alert("You Won!")
 			gameOver = true
 			clearInterval(invaderId)
 		}

@@ -1,13 +1,8 @@
 // This script shows the answers to the jokes and fades the buttons when you click them.
 $(document).ready(function(){
-	$("#button1").click(function(){
-		$("#answer1").fadeIn();
-		$("#button1").fadeOut();
-        console.info("button 1 pressed");
-
-	});
 	$("#button2").click(function(){
 		$("#answer2").fadeIn();
+		console.log("fade in 2")
 		$("#button2").fadeOut();
         console.info("button 2 pressed");
 
