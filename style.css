@@ -6,20 +6,11 @@ body {
     margin-bottom: 10px;
 }
 
-nav ul {
-    list-style-type: none;
+.card {
+    padding: 10;
 }
-
-nav ul li { 
-    float: left;
-    margin-bottom: 1.0em;
-    margin-right: 0.5em;
-}
-
-main {
-    clear: left;
-    background-color: white;
-    padding: 0 0 15em 1em;
+.card img {
+    filter: brightness(90%)
 }
 
 #log li {
@@ -38,6 +29,5 @@ main {
 #google_translate_element {
     z-index: 10; /* Put it on top of everything */
 }
-.topmargin a {
-    margin-top: 4px;
-}
+nav a { margin-top: 4px }
+nav { background-color: lightgray; padding: 10px}
