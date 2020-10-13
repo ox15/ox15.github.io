@@ -1,12 +1,8 @@
 #!/usr/bin/python
 from anagrams_data import *
 
-#
-#
-#
 # Computer chooses a word
-#
-#
+
 def compChooseWord(hand, wordList, n):
     """
     Given a hand and a wordList, find the word that gives
@@ -142,7 +138,7 @@ def playGame(wordList):
             try:
                 HAND_SIZE = int(cmd)
             except:
-                print('Invalid command. Hand size is the default size.')
+                print('Invalid command. Hand size is 7.')
                 HAND_SIZE = 7
             hand = dealHand(HAND_SIZE)
         elif 'e' == cmd:

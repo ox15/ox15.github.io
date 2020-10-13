@@ -1,11 +1,6 @@
 import random
 import sys
-"""
-Letter Guessing Game
-"""
-"""
-TODO:
-"""
+
 
 class Game(object):
     def __init__(self):
@@ -68,7 +63,7 @@ class Game(object):
             i += 1
             if len(self.word)==self.length and self.word in self.wordList:
                 i=0
-                print("The computer's word is "+ self.word)
+                #print("The computer's word is "+ self.word)
                 print("The computer found a word using these letters:", str(self.choices))
                 self.guess()
 

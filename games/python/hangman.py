@@ -8,7 +8,9 @@
 # but you will have to know how to use the functions
 # (so be sure to read the docstrings!)
 
-import random, string, sys
+import random
+import string
+import sys
 
 WORDLIST_FILENAME = "words_hangman.txt"
 
@@ -89,10 +91,10 @@ def getAvailableLetters(lettersGuessed):
       yet been guessed.
     '''
     # FILL IN YOUR CODE HERE...
-    availableLetters=""
+    availableLetters = ""
     for letter in string.ascii_lowercase:
         if letter not in lettersGuessed:
-            availableLetters+=letter
+            availableLetters += letter
     return availableLetters
 
 def hangman(secretWord):
@@ -117,8 +119,8 @@ def hangman(secretWord):
     '''
 
     # FILL IN YOUR CODE HERE...
-    guessesLeft=8
-    lettersGuessed=[]
+    guessesLeft = 8
+    lettersGuessed = []
     print("Welcome to the game, Hangman!")
     print("I am thinking of a word that is "+str(len(secretWord))+" letters long")
     while not isWordGuessed(secretWord, lettersGuessed) and guessesLeft > 0:
@@ -155,5 +157,5 @@ def hangman(secretWord):
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
-secretWord = chooseWord(wordlist).lower()
-hangman(secretWord)
+hangmanWord = chooseWord(wordlist).lower()
+hangman(hangmanWord)

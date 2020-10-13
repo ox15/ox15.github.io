@@ -1,7 +1,8 @@
 # The 6.00 Word Game
+import random
 import sys
 sys.path=["..", "."]
-import random
+
 
 VOWELS = 'aeiou'
 CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
@@ -23,9 +24,9 @@ def loadWords():
     take a while to finish.
     """
 
-    words = int(input("Which list should be used? Press 1 for places/companies, 2 for names of people, and 3 for other words: "))
+    words = int(input("Which list should be used? Press 1 for places/companies/constellations/planets, 2 for names of people, and 3 for other words: "))
     if words==1:
-        WORDLIST_FILENAME = "things.txt"
+        WORDLIST_FILENAME = "places-companies.txt"
     elif words==2:
         WORDLIST_FILENAME = "people.txt"
     elif words==3:
