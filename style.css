@@ -1,5 +1,6 @@
 body {
     margin-left: 8px;
+    background-color: #efe;
 }
 
 .goog-te-gadget-simple {
@@ -8,9 +9,6 @@ body {
 
 .card {
     padding: 10;
-}
-.card img {
-    filter: brightness(90%)
 }
 
 #log li {

@@ -39,36 +39,120 @@
     <h1>Games</h1>
     
     <p>Click on the title of any games page to download the necessary components (boards, files, etc.)</p>
-    <div class="btn-group">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            JavaScript games
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="js/pong">Pong game</a>
-            <a class="dropdown-item" href="js/memory">Memory game</a>
-            <a class="dropdown-item" href="js/whack-a-mole">Whack-a-mole</a>
-            <a class="dropdown-item" href="js/connect4">Connect Four</a>
-            <a class="dropdown-item" href="js/snake">Snake</a>
-            <a class="dropdown-item" href="js/invaders/">Space Invaders</a>
-            <a class="dropdown-item" href="js/frogger/">Frogger</a>
-            <a class="dropdown-item" href="js/tetris/">Tetris</a>
+    <div class="container">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="../screenshots/memory.png" class="card-img-top"
+                alt="Memory screenshot.">
+                <div class="card-body">
+                <h5 class="card-title">Memory game</h5>
+                <p class="card-text">Flip cards and try to make a match.</p>
+                <a href="js/memory" class="btn btn-primary">Play Memory game</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="../screenshots/whack-a-mole.png" class="card-img-top"
+                alt="Whack-a-mole screenshot.">
+                <div class="card-body">
+                    <h5 class="card-title">Whack-a-mole</h5>
+                    <p class="card-text">Click the mole with your mouse (or fingers) as many times as you can before
+                        the time runs out.</p>
+                    <a href="js/whack-a-mole/" class="btn btn-primary">Play Whack-a-mole</a>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="../screenshots/snake.png" class="card-img-top"
+                alt="Snake screenshot.">
+                <div class="card-body">
+                <h5 class="card-title">Snake</h5>
+                <p class="card-text">Steer the snake towards the purple block, but don't crash into the wall.</p>
+                <a href="js/snake/" class="btn btn-primary">Play Snake</a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="../screenshots/tetris.png" class="card-img-top"
+                alt="Tetris screenshot.">
+                <div class="card-body">
+                <h5 class="card-title">Tetris</h5>
+                <p class="card-text">Turn blocks to make lines and beat your highscore!</p>
+                <a href="js/tetris" class="btn btn-primary">Play Tetris</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="../screenshots/frogger.png" class="card-img-top"
+                alt="Frogger screenshot.">
+                <div class="card-body">
+                <h5 class="card-title">Frogger</h5>
+                <p class="card-text">Jump (up arrow) across the road, avoiding the cars, 
+                    then jump on the logs to get to the other side.</p>
+                <a href="js/frogger" class="btn btn-primary">Play Frogger</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="../screenshots/invaders.png" class="card-img-top"
+                alt="Invaders screenshot.">
+                <div class="card-body">
+                <h5 class="card-title">Space Invaders</h5>
+                <p class="card-text">Shoot the aliens before they get you!</p>
+                <a href="js/invaders/" class="btn btn-primary">Play Space Invaders</a>
+                <a href="invaders/" class="btn btn-secondary">Play the Java version</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="../screenshots/pong.png" class="card-img-top"
+                alt="Pong screenshot.">
+                <div class="card-body">
+                <h5 class="card-title">Pong</h5>
+                <p class="card-text">Move the paddle so the ball bounces off it.</p>
+                <a href="js/pong" class="btn btn-primary">Play Pong</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="../screenshots/connect4.png" class="card-img-top"
+                alt="Connect 4 screenshot.">
+                <div class="card-body">
+                <h5 class="card-title">Connect 4</h5>
+                <p class="card-text">A 2-player game. Try to get 4 circles in a row before the other player.</p>
+                <a href="js/connect4" class="btn btn-primary">Play Connect 4</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="../screenshots/python.png" class="card-img-top"
+                alt="Python screenshot.">
+                <div class="card-body">
+                <h5 class="card-title">Python games</h5>
+                <p class="card-text">Some text-based word games in Python</p>
+                <a href="python" class="btn btn-primary">Go to Python games</a>
+              </div>
+            </div>
+          </div>
+          
         </div>
-    </div>
-    <div class="btn-group">
-        <button class="btn btn-secondary dropdown-toggle" type="button" 
-        id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Board games
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="board/ultimate_tic-tac-toe">Ultimate Tic-Tac-Toe</a>
-            <a class="dropdown-item" href="board/mini-chess">How to play Mini chess/checkers</a>
-            <a class="dropdown-item" href="board/shoot&score">How to play Shoot &amp; Score</a>
-        </div>
-    </div>
-    <a class="btn btn-secondary" href="invaders">Play a classic invaders game</a>
-    <a class="btn btn-secondary" href="python">Python games</a><br><br><br>
+      </div>
     <a href="https://forms.gle/HNRY3sKNcGsFbPsB9">Report feedback and bugs</a>
 </body>
 
