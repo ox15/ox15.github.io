@@ -29,3 +29,7 @@ body {
 }
 nav a { margin-top: 4px }
 nav { background-color: lightgray; padding: 10px}
+
+.answer {
+    display: none;
+}
