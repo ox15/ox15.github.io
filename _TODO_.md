@@ -1,0 +1,1 @@
+* Add links to games page and home page in each game
