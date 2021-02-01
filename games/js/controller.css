@@ -5,6 +5,7 @@
 .controller {
 	width:200px;
 	align-items: center;
+	float: right;
 }
 
 .controller .ud {
