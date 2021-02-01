@@ -12,6 +12,11 @@
             <button disabled>Start without friction (coming soon)</button>
             <input type="checkbox" id="frictionx" disabled>
             <label for="frictionx">Friction (coming soon)</label>
+            <input type="checkbox" id="musicx" checked>
+            <label for="musicx">Music</label>
+            <input type="checkbox" id="sfxx" checked>
+            <label for="sfxx">Sound Effects</label>
+
         </form>
         <canvas id="gameCanvas" width="760" height="570"></canvas>
         <script>
@@ -39,8 +44,8 @@
             const SHIP_TURN_SPD = 360; // turn speed in degrees per second
             const SHOW_CENTRE_DOT = false; // show or hide ship's centre dot
             const SHOW_BOUNDING = false;
-            const MUSIC_ON = true;
-            const SOUND_ON = true;
+            var MUSIC_ON = true;
+            var SOUND_ON = true;
             const TEXT_FADE_TIME = 2.5 // text fade time in seconds
             const TEXT_SIZE = 40 // text size in pixels
 
@@ -53,10 +58,12 @@
             fxHit = new Sound("sounds/hit.m4a", 5);
             fxLaser = new Sound("sounds/laser.m4a", 5, 0.5);
             fxThrust = new Sound("sounds/thrust.m4a");
+            var soundChecked
+            
 
             // set up music
             var music = new Music("sounds/music-low.m4a", "sounds/music-high.m4a")
-            var roidsLeft, roidsTotal
+            var roidsLeft, roidsTotal, musicChecked
 
             // set up the game parameters
             var level, lives, roids, score, scoreHigh, ship, text, textAlpha
@@ -348,6 +355,19 @@
                 var blinkOn = ship.blinkNum % 2 == 0
                 var exploding = ship.explodeTime > 0
 
+                // check if sfx and music enabled
+                soundChecked = document.getElementById("soundx").checked
+                if(soundChecked) {
+                    SOUND_ON = true
+                } else {
+                    SOUND_ON = false
+                }
+                musicChecked = document.getElementById("musicx").checked
+                if(musicChecked) {
+                    MUSIC_ON = true
+                } else {
+                    MUSIC_ON = false
+                }
                 // tick the music
                 music.tick()
 
