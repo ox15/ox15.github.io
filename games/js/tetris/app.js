@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const scoreDisplay = document.querySelector('.score-display')
 	const highscoreDisplay = document.querySelector('.high')
 	const linesDisplay = document.querySelector('.lines-display')
+	const overDisplay = document.querySelector('.overdisplay')
 	const displaySquares = document.querySelectorAll('.previous-grid div')
 	
 	const downBtn = document.querySelector('.down')
@@ -202,19 +203,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function gameOver() {
 		if(current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
-			scoreDisplay.innerHTML = 'Game Over!'
+			overDisplay.innerHTML = 'Game Over!'
 			clearInterval('timerId')
 			isGameOver = true
 		}
 	}
 
 	function addScore() {
-		rows = 0
+		let rowsAdded = 0
 		for (currentIndex = 0; currentIndex < 199; currentIndex += GRID_WIDTH) {
 			const row = [currentIndex, currentIndex+1, currentIndex+2, currentIndex+3, currentIndex+4, currentIndex+5, 	currentIndex+6, currentIndex+7, currentIndex+8, currentIndex+9]
 
 			if(row.every(index => squares[index].classList.contains('block2'))) {
+				rowsAdded++
 				rows++
+				console.log([rows, rowsAdded])
 				
 				row.forEach(index => {
 					squares[index].classList.remove('block2') || squares[index].classList.remove('block')
@@ -224,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				squares.forEach(cell => grid.appendChild(cell))
 			}
 		}
-		score += getScore(rows)
+		score += scoreBonus(rowsAdded)
 		setNewHighscore()
 		getHighscore()
 
@@ -232,11 +235,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		linesDisplay.innerHTML = rows
 	}
 
-	function getScore(rows) {
-		let rowbonus = 0
-		if(rows>1){
-			rowbonus=rows*rows*10
-		}
+	function scoreBonus(rowsAdded) {
+		let rowbonus=rowsAdded*rowsAdded*10
 		return rowbonus
 	}
 
