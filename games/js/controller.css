@@ -4,8 +4,10 @@
 
 .controller {
 	width:200px;
-	align-items: center;
+	align-items: right;
 	float: right;
+	border:1px solid black;
+	height: fit-content;
 }
 
 .controller .ud {
