@@ -2,4 +2,6 @@
 *.session
 node_modules
 *eslint*
-package*.json
+package*.json.
+# Temporarily don't commit neural network asteroids until it's ready
+*neural*
