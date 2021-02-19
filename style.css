@@ -3,32 +3,10 @@ body {
     background-color: #efe;
 }
 
-.goog-te-gadget-simple {
-    margin-bottom: 10px;
+.card-title {
+    font-size: 20px;
 }
 
-.card {
-    padding: 10;
-}
-
-#log li {
-    border: 1px solid gray;
-    font-weight: bolder;
-    border-radius: 6px;
-    padding: 10px;
-    list-style: none;
-}
-
-.news { /* News on main page */
-    text-align: left;
-    border: 2px solid black;
-}
-
-#google_translate_element {
-    z-index: 10; /* Put it on top of everything */
-}
-nav a { margin-top: 4px }
-nav { background-color: lightgray; padding: 10px}
 
 .answer {
     display: none;
