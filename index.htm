@@ -1,129 +1,144 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Games, jokes, timeline, and madlibs on SamuelTimes.com.">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
 
-        gtag('config', 'UA-148801207-1');
+      gtag('config', 'UA-148801207-1');
     </script>
 
     <!-- bootstrap + local styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <title>SamuelTimes.com</title>
-    <style>body{background-color: #ded;}</style>
+    <style>
+      body {
+        background-color: #ded;
+      }
+    </style>
 
-</head>
+  </head>
 
-<body>
-        <h1>SamuelTimes</h1>
+  <body>
+    <h1>SamuelTimes</h1>
     <div class="container">
-
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="screenshots/games.png" class="card-img-top"
-                alt="Games screenshot.">
-                <div class="card-body">
-                <p class="card-title">Games</p>
-                <p class="card-text">Simple games in Javascript. Also includes some Python games.</p>
-                <a href="games" class="btn btn-primary">Go to games</a>
-              </div>
+      <!----------
+      BEGIN news section: tells site visitors what the newest thing is.
+      -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <p class="card-title">News</p>
+              <p class="card-text">Check out the (not so new) Asteroids game.</p>
+              <a href="games/js/asteroids/" class="btn btn-primary">Play Asteroids</a>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="screenshots/jokes-lg.png" class="card-img-top"
-                alt="Jokes screenshot large.">
-                <div class="card-body">
-                    <p class="card-title">Jokes</p>
-                    <p class="card-text">Jokes and riddles. Some have pictures. The answer buttons don't work right now.</p>
-                    <a href="jokes" class="btn btn-primary">Go to jokes</a>
-                </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="screenshots/timeline.png" class="card-img-top"
-                alt="Timeline screenshot.">
-                <div class="card-body">
-                <p class="card-title">Timeline</p>
-                <p class="card-text">An interactive timeline of world history.</p>
-                <a href="timeline" class="btn btn-primary">Go to timeline</a>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="screenshots/madlib.png" class="card-img-top"
-                alt="Madlib screenshot.">
-                <div class="card-body">
-                <p class="card-title">Mad Libs</p>
-                <p class="card-text">Fill in some words, then get a funny story using the words you put in.</p>
-                <a href="madlib" class="btn btn-primary">Go to Mad Libs</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="screenshots/snake.png" class="card-img-top"
-                alt="Snake screenshot.">
-                <div class="card-body">
-                <p class="card-title">Snake</p>
-                <p class="card-text">Steer the snake towards the purple block, but don't crash into the wall.</p>
-                <a href="games/js/snake" class="btn btn-primary">Play Snake</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="screenshots/tetris.png" class="card-img-top"
-                alt="Snake screenshot.">
-                <div class="card-body">
-                <p class="card-title">Tetris</p>
-                <p class="card-text">Turn blocks to make lines and beat your highscore!</p>
-                <a href="games/js/tetris" class="btn btn-primary">Play Tetris</a>
-              </div>
-            </div>
-          </div>
-          
         </div>
       </div>
+      <!--
+      END news section
+      ---------->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="screenshots/games.png" class="card-img-top" alt="Games screenshot.">
+            <div class="card-body">
+              <p class="card-title">Games</p>
+              <p class="card-text">Simple games in Javascript. Also includes some Python games.</p>
+              <a href="games" class="btn btn-primary">Go to games</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="screenshots/jokes-lg.png" class="card-img-top" alt="Jokes screenshot large.">
+            <div class="card-body">
+              <p class="card-title">Jokes</p>
+              <p class="card-text">Jokes and riddles. Some have pictures. The answer buttons don't work right now.</p>
+              <a href="jokes" class="btn btn-primary">Go to jokes</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="screenshots/timeline.png" class="card-img-top" alt="Timeline screenshot.">
+            <div class="card-body">
+              <p class="card-title">Timeline</p>
+              <p class="card-text">An interactive timeline of world history.</p>
+              <a href="timeline" class="btn btn-primary">Go to timeline</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="screenshots/madlib.png" class="card-img-top" alt="Madlib screenshot.">
+            <div class="card-body">
+              <p class="card-title">Mad Libs</p>
+              <p class="card-text">Fill in some words, then get a funny story using the words you put in.</p>
+              <a href="madlib" class="btn btn-primary">Go to Mad Libs</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="screenshots/snake.png" class="card-img-top" alt="Snake screenshot.">
+            <div class="card-body">
+              <p class="card-title">Snake</p>
+              <p class="card-text">Steer the snake towards the purple block, but don't crash into the wall.</p>
+              <a href="games/js/snake" class="btn btn-primary">Play Snake</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="screenshots/tetris.png" class="card-img-top" alt="Snake screenshot.">
+            <div class="card-body">
+              <p class="card-title">Tetris</p>
+              <p class="card-text">Turn blocks to make lines and beat your highscore!</p>
+              <a href="games/js/tetris" class="btn btn-primary">Play Tetris</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 
 
 
     <details>
-        <summary>About this site</summary>
-        <p>The translate box is powered by <a href="https://translate.google.com" target="_blank" rel="noreferrer">
+      <summary>About this site</summary>
+      <p>The translate box is powered by <a href="https://translate.google.com" target="_blank" rel="noreferrer">
           Google Translate</a>. Are you multilingual? You can help
-          <a href="https://translate.google.com/community" target="_blank" rel="noreferrer">improve it</a>.
-        </p>
-        <p>This site was built with <a href="https://pages.github.com" target="_blank" rel="noreferrer">
+        <a href="https://translate.google.com/community" target="_blank" rel="noreferrer">improve it</a>.
+      </p>
+      <p>This site was built with <a href="https://pages.github.com" target="_blank" rel="noreferrer">
           Github Pages</a></p>
-        <p>This site uses <a href="analytics.google.com" target="_blank" rel="noreferrer">Google Analytics</a>
-          to see how many people have visited it.
-            Google Analytics knows what your location was when you came here, but we don't collect or use any personal
-            information about you. We don't store cookies, but Google uses cookies on this site for analytics.</p>
-        <p>The Pong game was made with <a href="https://www.w3schools.com/js/default.asp" target="_blank" rel="noreferrer">
+      <p>This site uses <a href="analytics.google.com" target="_blank" rel="noreferrer">Google Analytics</a>
+        to see how many people have visited it.
+        Google Analytics knows what your location was when you came here, but we don't collect or use any personal
+        information about you. We don't store cookies, but Google uses cookies on this site for analytics.</p>
+      <p>The Pong game was made with <a href="https://www.w3schools.com/js/default.asp" target="_blank"
+          rel="noreferrer">
           JavaScript</a>. The Save the
-            Sheep and Invaders games were made with <a href="https://greenfoot.org" target="_blank" rel="noreferrer">
-              Greenfoot</a>.</p>
+        Sheep and Invaders games were made with <a href="https://greenfoot.org" target="_blank" rel="noreferrer">
+          Greenfoot</a>.</p>
     </details>
     <a accesskey="r" target="_blank" href="https://forms.gle/oU237B8RYKpx83Ff6" target="_blank" rel="noreferrer">
       Report a problem or send feedback</a>
-</body>
+  </body>
 
 </html>
