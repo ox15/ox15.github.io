@@ -57,9 +57,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const grid = document.querySelector('.grid')
 	const resultDisplay = document.querySelector('#result')
+	const status = document.querySelector('#status')
 	var cardsChosen = []
 	var cardsChosenId = []
 	var cardsWon = []
+	const matchMsg = "You found a match!"
+	const noMatchMsg = "Sorry, try again!"
+
+	function resetClassesTo(newClass) {
+		status.className=""
+		status.classList.add("alert")
+		status.classList.add(newClass)
+	}
 
 	function createBoard() {
 		for (let i = 0; i < cardArray.length; i++) {
@@ -77,20 +86,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		const optionOneId = cardsChosenId[0]
 		const optionTwoId = cardsChosenId[1]
 		if(cardsChosen[0] === cardsChosen[1]) {
-			alert("You found a match!")
+			status.textContent = matchMsg
+			resetClassesTo("alert-success")
 			cards[optionOneId].setAttribute('src', 'images/white.png')
 			cards[optionTwoId].setAttribute('src', 'images/white.png')
 			cardsWon.push(cardsChosen)
 		} else {
 			cards[optionOneId].setAttribute('src', 'images/blank.png')
 			cards[optionTwoId].setAttribute('src', 'images/blank.png')
-			alert('Sorry, try again')
+			status.textContent = noMatchMsg
+			resetClassesTo("alert-danger")
 		}
 		cardsChosen = []
 		cardsChosenId = []
 		resultDisplay.textContent = cardsWon.length
 		if(cardsWon.length === cardArray.length/2) {
-			resultDisplay.textContent = 'you won the round!'
+			resetClassesTo("alert-info")
+			status.textContent = 'You won the round! Reload to play again.'
 		}
 	}
 
