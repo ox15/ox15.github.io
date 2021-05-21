@@ -95,6 +95,8 @@
 
             // When mouse clicked or finger tapped
             downBtn.addEventListener("mousedown", shootLaser)
+            downBtn.addEventListener("mouseup", () => {ship.canShoot = true})
+
             upBtn.addEventListener('mousedown', mouseThrust)
             leftBtn.addEventListener('mousedown', mouseLeft)
             rightBtn.addEventListener('mousedown', mouseRight)
@@ -102,7 +104,7 @@
             // When finger lifted
             leftBtn.addEventListener('mouseup', mouseStop)
             rightBtn.addEventListener('mouseup', mouseStop)
-            upBtn.addEventListener('mouseUp', mouseStopThrust)
+            upBtn.addEventListener('mouseup', mouseStopThrust)
 
             // set up the game loop
             setInterval(update, 1000 / FPS);
@@ -245,6 +247,7 @@
                 switch (ev.button) {
                     case 0: // left mouse button
                     ship.rot = SHIP_TURN_SPD / 180 * Math.PI / FPS;
+                    console.log("left")
                     break;
                 }
             }
@@ -252,36 +255,38 @@
             function mouseRight(/** @type {MouseEvent} */ ev) {
                 if (ship.dead) { return }
                 switch (ev.button) {
-                    case 0: // left mouse button
+                case 0: // left mouse button
                     ship.rot = -SHIP_TURN_SPD / 180 * Math.PI / FPS;
-                    break;
+                    console.log("right")
+                break;
                 }
             }
 
             function mouseStop(/** @type {MouseEvent} */ ev) {
                 if (ship.dead) { return }
                 switch (ev.button) {
-                    case 0: // left mouse button
+                case 0: // left mouse button
                     ship.rot = 0;
-                    break;
+                    console.log("stop turning")
+                break;
                 }
             }
 
             function mouseThrust(/** @type {MouseEvent} */ ev) {
                 if (ship.dead) { return }
                 switch (ev.button) {
-                    case 0: // left mouse button
+                case 0: // left mouse button
                     ship.thrusting = true;
-                    break;
+                break;
                 }
             }
 
             function mouseStopThrust(/** @type {MouseEvent} */ ev) {
                 if (ship.dead) { return }
                 switch (ev.button) {
-                    case 0: // left mouse button
+                case 0: // left mouse button
                     ship.thrusting = false;
-                    break;
+                break;
                 }
             }
 
