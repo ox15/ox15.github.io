@@ -97,14 +97,14 @@
             downBtn.addEventListener("mousedown", shootLaser)
             downBtn.addEventListener("mouseup", () => {ship.canShoot = true})
 
-            upBtn.addEventListener('mousedown', mouseThrust)
-            leftBtn.addEventListener('mousedown', mouseLeft)
-            rightBtn.addEventListener('mousedown', mouseRight)
+            upBtn.addEventListener('mousedown', () => {ship.thrusting = true})
+            leftBtn.addEventListener('mousedown', () => {ship.rot = SHIP_TURN_SPD / 180 * Math.PI / FPS})
+            rightBtn.addEventListener('mousedown', () => {ship.rot = -SHIP_TURN_SPD / 180 * Math.PI / FPS})
             
             // When finger lifted
-            leftBtn.addEventListener('mouseup', mouseStop)
-            rightBtn.addEventListener('mouseup', mouseStop)
-            upBtn.addEventListener('mouseup', mouseStopThrust)
+            leftBtn.addEventListener('mouseup', () => {ship.rot = 0})
+            rightBtn.addEventListener('mouseup', () => {ship.rot = 0})
+            upBtn.addEventListener('mouseup', () => {ship.thrusting = false})
 
             // set up the game loop
             setInterval(update, 1000 / FPS);
@@ -241,58 +241,6 @@
                         break;
                 }
             }
-
-            function mouseLeft(/** @type {MouseEvent} */ ev) {
-                if (ship.dead) { return }
-                switch (ev.button) {
-                    case 0: // left mouse button
-                    ship.rot = SHIP_TURN_SPD / 180 * Math.PI / FPS;
-                    console.log("left")
-                    break;
-                }
-            }
-
-            function mouseRight(/** @type {MouseEvent} */ ev) {
-                if (ship.dead) { return }
-                switch (ev.button) {
-                case 0: // left mouse button
-                    ship.rot = -SHIP_TURN_SPD / 180 * Math.PI / FPS;
-                    console.log("right")
-                break;
-                }
-            }
-
-            function mouseStop(/** @type {MouseEvent} */ ev) {
-                if (ship.dead) { return }
-                switch (ev.button) {
-                case 0: // left mouse button
-                    ship.rot = 0;
-                    console.log("stop turning")
-                break;
-                }
-            }
-
-            function mouseThrust(/** @type {MouseEvent} */ ev) {
-                if (ship.dead) { return }
-                switch (ev.button) {
-                case 0: // left mouse button
-                    ship.thrusting = true;
-                break;
-                }
-            }
-
-            function mouseStopThrust(/** @type {MouseEvent} */ ev) {
-                if (ship.dead) { return }
-                switch (ev.button) {
-                case 0: // left mouse button
-                    ship.thrusting = false;
-                break;
-                }
-            }
-
-
-
-
 
             function newAsteroid(x, y, r) {
                 lvlMult = 1 + 0.1 * level
