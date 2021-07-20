@@ -206,7 +206,10 @@
 
                 switch (ev.keyCode) {
                     case 32: // space bar
-                        shootLaser()
+                        shootLaser(true)
+                        break;
+                    case 40: // down arrow
+                        shootLaser(false)
                         break;
                     case 37: // left arrow (rotate ship left)
                         ship.rot = SHIP_TURN_SPD / 180 * Math.PI / FPS;
@@ -228,6 +231,9 @@
 
                 switch (ev.keyCode) {
                     case 32: // space bar (allow shooting)
+                        ship.canShoot = true
+                        break;
+                    case 40: // down arrow
                         ship.canShoot = true
                         break;
                     case 37: // left arrow (stop rotating left)
@@ -305,7 +311,7 @@
                 }
             }
 
-            function shootLaser() {
+            function shootLaser(isSpacebar) {
                 // create laser
                 if (ship.canShoot && ship.lasers.length < LASER_MAX) {
                     ship.lasers.push({ // from nose
@@ -316,6 +322,7 @@
                         dist: 0,
                         explodeTime: 0
                     })
+                    console.log("Laser shot by spacebar: "+isSpacebar)
                     fxLaser.play();
                 }
 
