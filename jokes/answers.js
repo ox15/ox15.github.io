@@ -1,9 +1,46 @@
 // This script shows the answers to the jokes and fades the buttons when you click them.
 $(document).ready(function(){
+
+	// Career jokes
+
+	$(".career1").click(function(){
+		$( ".c1" ).fadeIn();
+		$(".career1").fadeOut();
+	});
+        
+	$(".career2").click(function(){
+		$( ".c2" ).fadeIn();
+		$(".career2").fadeOut();
+    });
+
+	$(".career3").click(function(){
+		$( ".c3" ).fadeIn();
+		$(".career3").fadeOut();
+	});
+        
+	$(".career4").click(function(){
+		$( ".c4" ).fadeIn();
+		$(".career4").fadeOut();
+	});
+        
+	$(".career5").click(function(){
+		$( ".c5" ).fadeIn();
+		$(".career5").fadeOut();
+	});
+        
+	$(".career6").click(function(){
+		$( ".c6" ).fadeIn();
+		$(".career6").fadeOut();
+	});
+        
+	$(".career7").click(function(){
+		$( ".c7" ).fadeIn();
+		$(".career7").fadeOut();
+	});
+        
 	$(".button2").click(function(){
 		$( ".2" ).fadeIn();
 		$(".button2").fadeOut();
-        
 
 	});
     $(".button3").click(function(){
