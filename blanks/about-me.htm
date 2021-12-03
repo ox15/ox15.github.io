@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<!-- Copyright 2015 - Do not copy without permission. -->
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="../../style.css" />
+  <title>All About Me</title>
+</head>
+<body>
+<div style="float:right">
+    <a class="btn" href="index.htm">All fill-in-the-blank</a>
+    <a class=btn href="../index.htm">Home</a>
+</div>
+<h1>All About Me</h1>
+<div  id="form">
+	<form>
+		Name: <input type="text" id="v1"><br>
+		Last name: <input type="text" id="v2"><br>
+		Number: <input type="number" id="v3"><br>
+		City: <input type="text" id="v4"><br>
+		Letter of the alphabet: <input type="text" id="v5"><br>
+		Letter of the alphabet: <input type="text" id="v6"><br>
+		Silly word: <input type="text" id="v7"><br>
+		Animal: <input type="text" id="v8"><br>
+		Thing: <input type="text" id="v9"><br>
+		Color: <input type="text" id="v10"><br>
+		<input type="button" id="go" value="Go">
+	</form>
+</div>
+
+<div id="story"></div>
+<script>
+var story = "Hi. My name is _v1_ _v2_. I am _v3_ years old and I live in _v4_, _v5__v6_, in the country of _v7_. Here are my favorite things: <ul><li>Favorite book: The _v8_ in the _v9_</li> \
+<li>Favorite color: _v10_</li><ul>";
+
+$(document).ready(function(){
+	$("#story").hide();
+
+    $("#go").click(function(){
+		$("#form").fadeOut();
+		story = story.replace("_v1_",$("#v1").val());
+		story = story.replace("_v2_",$("#v2").val());
+		story = story.replace("_v3_",$("#v3").val());
+		story = story.replace("_v4_",$("#v4").val());
+		story = story.replace("_v5_",$("#v5").val());
+		story = story.replace("_v6_",$("#v6").val());
+		story = story.replace("_v7_",$("#v7").val());
+		story = story.replace("_v8_",$("#v8").val());
+		story = story.replace("_v9_",$("#v9").val());
+		story = story.replace("_v10_",$("#v10").val());
+		story = story.replace("_v11_",$("#v11").val());
+		story = story.replace("_v12_",$("#v12").val());
+		story = story.replace("_v13_",$("#v13").val());
+		story = story.replace("_v14_",$("#v14").val());
+        story = story.replace("_v15_",$("#v15").val());
+        story = story.replace("_v16_",$("#v16").val());
+        story = story.replace("_v17_",$("#v17").val());
+        story = story.replace("_v18_",$("#v18").val());
+        story = story.replace("_v19_",$("#v19").val());
+        story = story.replace("_v20_",$("#v20").val());
+        story = story.replace("_v21_",$("#v21").val());
+        story = story.replace("_v22_",$("#v22").val());
+        story = story.replace("_v23_",$("#v23").val());
+        story = story.replace("_v24_",$("#v24").val());
+        story = story.replace("_v25_",$("#v25").val());
+        story = story.replace("_v26_",$("#v26").val());
+        story = story.replace("_v27_",$("#v27").val());
+        story = story.replace("_v28_",$("#v28").val());
+        story = story.replace("_v29_",$("#v29").val());
+		$("#story").html(story).fadeIn();
+    });
+});
+
+
+</script></body></html>
