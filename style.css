@@ -1,10 +1,14 @@
-body {
+body { /* All pages */
     margin: auto 8px;
     background-color: #efe;
 }
 
 .card-title {
     font-size: 20px;
+}
+
+.card-body {
+    background-color: rgb(235, 235, 235);
 }
 
 
