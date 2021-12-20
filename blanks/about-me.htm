@@ -24,6 +24,13 @@
 		Animal: <input type="text" id="v8"><br>
 		Thing: <input type="text" id="v9"><br>
 		Color: <input type="text" id="v10"><br>
+		Food: <input type="text" id="v11"><br>
+		Animal: <input type="text" id="v12"><br>
+		Place: <input type="text" id="v13"><br>
+		Adjective: <input type="text" id="v14"><br>
+		Number: <input type="number" id="v15"><br>
+		Thing: <input type="text" id="v16"><br>
+		Thing (plural): <input type="text" id="v17"><br>
 		<input type="button" id="go" value="Go">
 	</form>
 </div>
@@ -31,7 +38,12 @@
 <div id="story"></div>
 <script>
 var story = "Hi. My name is _v1_ _v2_. I am _v3_ years old and I live in _v4_, _v5__v6_, in the country of _v7_. Here are my favorite things: <ul><li>Favorite book: The _v8_ in the _v9_</li> \
-<li>Favorite color: _v10_</li><ul>";
+<li>Favorite color: _v10_</li> \
+<li>Favorite food: _v11_</li> \
+<li>Favorite animal: _v12_</li> \
+<li>A place I would like to visit: (The) _v13_</li> \
+<li>If I could have a new, _v14_ vehicle for only $_v15_, it would be a _v16_</li><ul> \
+Those are some of my favorite _v17_!";
 
 $(document).ready(function(){
 	$("#story").hide();
