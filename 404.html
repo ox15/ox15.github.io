@@ -6,8 +6,13 @@
 <body>
 <h1>404</h1>
 <h2>Not Found</h2>
-<p>Sorry, the page you were looking for doesn't seem to exist.</p> <br>
-<button onclick="alert(window.location.href)">Which page?</button>
-<a href="index.htm">Go to the homepage</a><br>
-<a href="#" onclick="window.history.back();">Go back to where you just were</a>
+<p>Sorry, the page you were looking for doesn't seem to exist. Please report the following URL <a href="https://forms.gle/oU237B8RYKpx83Ff6" target="_blank">in the "Report a problem" section of the form</a>.</p>
+<div>Page URL: <code class="page"></code></div><br>
+
+<a href="index.htm">Go to the homepage</a><br><br>
+<a href="#" onclick="window.history.back();">Go back to the previous page</a>
 </body>
+<script>
+    const pageDisplay = document.querySelector('.page')
+    pageDisplay.innerHTML = window.location.href
+</script>
