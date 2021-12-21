@@ -5,3 +5,4 @@ node_modules
 package*.json.
 # Temporarily don't commit neural network asteroids until it's ready
 *neural*
+*TODO*
