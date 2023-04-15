@@ -8,12 +8,22 @@
         <link rel="stylesheet" href="../controller.css">
 
     </head>
+    <style>
+        .up {
+            background-color: green;
+            color: white;
+        }
+        .down {
+            background-color: red;
+            color: white;
+        }
+    </style>
 
     <body>
         <form>
-            <button disabled>Start without friction (coming soon)</button>
+            <!--<button disabled>Start without friction (coming soon)</button>
             <input type="checkbox" id="frictionx" disabled>
-            <label for="frictionx">Friction (coming soon)</label>
+            <label for="frictionx">Friction (coming soon)</label>-->
             <input type="checkbox" id="musicx" checked>
             <label for="musicx">Music</label>
             <input type="checkbox" id="soundx" checked>
@@ -21,11 +31,12 @@
 
         </form>
         <canvas id="gameCanvas" width="760" height="570"></canvas>
+        <div>You can use these controls on a touchscreen.</div>
         <div class="controller">
-            <button class="ud up">up</button><br>
+            <button class="ud up"><b>thrust</b></button><br>
             <button class="lr left">left</button>
             <button class="lr right">right</button><br>
-            <button class="ud down">down</button>
+            <button class="ud down"><b>shoot</b></button>
         </div>
         <script>
             const FPS = 30; // frames per second
@@ -56,6 +67,7 @@
             var SOUND_ON = true;
             const TEXT_FADE_TIME = 2.5 // text fade time in seconds
             const TEXT_SIZE = 40 // text size in pixels
+            const HIGHSCORE_BONUS = true // add 1 life if you beat the high score
 
             const downBtn = document.querySelector('.down')
             const upBtn = document.querySelector('.up')
@@ -79,7 +91,8 @@
             var roidsLeft, roidsTotal, musicChecked
 
             // set up the game parameters
-            var level, lives, roids, score, scoreHigh, ship, text, textAlpha
+            var level, lives, roids, score, scoreHigh, prevScoreHigh, ship, text, textAlpha
+            var passedHigh = false
             newGame()
 
             // set up the spaceship object
@@ -146,6 +159,13 @@
                 if (score > scoreHigh) {
                     scoreHigh = score
                     localStorage.setItem(SAVE_KEY_SCORE, scoreHigh)
+                    
+                }
+                if (score > prevScoreHigh && prevScoreHigh > 0 && !passedHigh) {
+                    lives++
+                    text = "Beat highscore! +1 life"
+                    textAlpha = 1.0
+                    passedHigh = true
                 }
 
                 // destroy the asteroid
@@ -280,6 +300,7 @@
                 } else {
                     scoreHigh = parseInt(scoreStr)
                 }
+                prevScoreHigh = scoreHigh // get a copy of the previous score for the life bonus
                 newLevel()
             }
 
