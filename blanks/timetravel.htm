@@ -3,6 +3,15 @@
 <!-- Copyright 2015 - Do not copy without permission. -->
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LWDMK3MSCV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LWDMK3MSCV');
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="../style.css" />
     <script src="../../translate.js"></script>
@@ -20,10 +29,11 @@
     <div id="form">
         <form>
             Occupation: <input type="text" id="v1"><br>
-            Last name: <input type="text" id="lname1"><br>
-            Number: <input type="number" id="num1"><br>
-            Adjective: <input type="text" id="adj1"><br>
-            Verb ending in "ing": <input type="text" id="verb1"><br>
+            Last name: <input type="text" id="v2"><br>
+            Place: <input type="text" id="v3"><br>
+            Verb ending in "ing": <input type="text" id="v4"><br>
+            Thing: <input type="text" id="v5"><br>
+            <!-- these aren't used yet -->
             Occupation: <input type="text" id="occ1"><br>
             Place: <input type="text" id="place1"><br>
             Thing: <input type="text" id="thing1"><br>
@@ -38,7 +48,7 @@
     </div>
 
     <script>
-        var story = "You are the great _v1_ _v2_ _v3_. Your mission is to invent a new way to travel to (the) _v4_ instantly, without _v5_ or driving a _v6_.";
+        var story = "You are the great _v1_ _v2_. Your mission is to invent a new way to travel to (the) _v3_ instantly, without _v4_ or driving a _v5_.";
 
         var blankCount = 22;
 
