@@ -36,7 +36,7 @@
 		Type of Container: <input type="text" id="v12"><br>
 		Game: <input type="text" id="v13"><br>
 		Thing: <input type="text" id="v14"><br>
-		Thing: <input type="text" id="v15"><br>
+		Thing (plural): <input type="text" id="v15"><br>
 		Animal: <input type="text" id="v16"><br>
 		Food: <input type="text" id="v17"><br>
 		Type of Liquid: <input type="text" id="v18"><br>
@@ -48,15 +48,13 @@
 		State: <input type="text" id="v25"><br>
 		Color: <input type="text" id="v26"><br>
 		Type of Car: <input type="text" id="v27"><br>
-		Car Make: <input type="text" id="v28"><br>
-		Number: <input type="number" id="v29"><br>
 		<input type="button" id="go" value="Go">
 	</form>
 </div>
 
 <div id="story"></div>
 <script>
-var story = "<u>Things that we, the _v1_ family, have to do before we leave to _v2_:</u><ul><li>Sweep the dining room _v3_.</li><li>Turn off the _v4_.</li><li>Make sure the _v5_'s _v6_ is charged and the gas tank is full of _v7_, and if it isn't, go to _v8_ and fill the tank with _v9_-octane _v7_. Make sure it costs $_v11_.</li><li>Pack your _v12_. Be sure to include _v13_ (the travel version), a _v14_ and some pieces of _v15_.</li><li>Give the _v16_ some _v17_ and _v18_</ul>OK! Let's go! We need to be at (the) _v2_ in _v20_ at _v21_ in time to catch our _v22_. We are visiting _v23_ in _v24_, _v25_. We will be driving our _v26_ _v27_ (the _v28_ with the _v29_-cylinder engine.";
+var story = "<u>Things that we, the _v1_ family, have to do before we leave to _v2_:</u><ul><li>Sweep the dining room _v3_.</li><li>Turn off the _v4_.</li><li>Make sure the _v5_'s _v6_ is charged and the gas tank is full of _v7_, and if it isn't, go to _v8_ and fill the tank with _v9_-octane _v7_. Make sure it costs $_v11_.</li><li>Pack your _v12_. Be sure to include _v13_ (the travel version), a _v14_ and some _v15_.</li><li>Give the _v16_ some _v17_ and _v18_</ul>OK! Let's go! We need to be at (the) _v2_ in _v20_ at _v21_ in time to catch our _v22_. We are visiting _v23_ in _v24_, _v25_. We will be driving our _v26_ _v27_.";
 var blankCount = 29;
 
 $(document).ready(function(){
