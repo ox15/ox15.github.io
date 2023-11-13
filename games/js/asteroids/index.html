@@ -14,6 +14,7 @@
         <meta charset="UTF-8">
         <title>Asteroids</title>
         <link rel="stylesheet" href="../controller.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     </head>
     <style>
@@ -24,6 +25,9 @@
         .down {
             background-color: red;
             color: white;
+        }
+        i {
+            font-size:large;
         }
     </style>
 
@@ -41,10 +45,10 @@
         <canvas id="gameCanvas" width="760" height="570"></canvas>
         <div>You can use these controls on a touchscreen.</div>
         <div class="controller">
-            <button class="ud up"><b>thrust</b></button><br>
-            <button class="lr left">left</button>
-            <button class="lr right">right</button><br>
-            <button class="ud down"><b>shoot</b></button>
+            <button class="ud up"><i class="bi bi-arrow-up-square"></i> <b>thrust</b></button><br>
+            <button class="lr left"><i class="bi bi-arrow-left-square"></i> left</button>
+            <button class="lr right">right <i class="bi bi-arrow-right-square"></i></button><br>
+            <button class="ud down"><i class="bi bi-arrow-down-square"></i> <b>shoot</b></button>
         </div>
         <script>
             const FPS = 30; // frames per second
