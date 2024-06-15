@@ -75,13 +75,6 @@ $(document).ready(function () {//Manage buttons
         update(0);
         //console.clear();
     });
-    
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            $(".dropdown-content").removeClass('show');
-        }
-    };
 
 });
 // Dropdown menus
