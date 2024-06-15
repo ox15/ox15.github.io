@@ -1,4 +1,4 @@
-
+//document.getElementById("storyDropdown").classList.toggle("show");
 var storyVersion = 7; // Tells the client cache when to refresh stories
 var started = false;
 var data = [{
@@ -75,9 +75,7 @@ $(document).ready(function () {//Manage buttons
         update(0);
         //console.clear();
     });
-    $("#selectStory").click(function () {
-        storyDropdownFunction();
-    });
+    
     // Close the dropdown menu if the user clicks outside of it
     window.onclick = function (event) {
         if (!event.target.matches('.dropbtn')) {
@@ -89,10 +87,7 @@ $(document).ready(function () {//Manage buttons
 // Dropdown menus
 /** When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
-function storyDropdownFunction() {
-    'use strict';
-    document.getElementById("storyDropdown").classList.toggle("show");
-}
+
 function loadStory(filename) {
     choiceCount = 0;
     $.getJSON(filename + "?version=" + storyVersion, function (json) {
