@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148801207-1"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148801207-1"></script> -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -23,7 +23,6 @@
 </head>
 <body>
     <div style="float:right">
-        <div id="google_translate_element"></div><br>
         <a class="btn" href="../index.htm">&lArr; Home</a>
     </div>
     <div class="stories">
@@ -37,15 +36,16 @@
             <button onclick="loadStory('genesis.json')">Genesis</button>
         
     </div>
-    <div id="btnHolder">
+    <div id="btnHolder" class="mb-3">
         <hr>
         <!--Buttons-->
-        <button id="btn0" hidden>Choice 1</button>
-        <button id="btn1" hidden>Choice 2</button>
-        <button id="btn2" hidden>Choice 3</button>
-        <button id="btn3" hidden>Choice 4</button>
-        <button id="reload">Start again</button>
+        <button id="btn0" class="btn btn-primary" hidden>Choice 1</button>
+        <button id="btn1" class="btn btn-secondary" hidden>Choice 2</button>
+        <button id="btn2" class="btn btn-secondary" hidden>Choice 3</button>
+        <button id="btn3" class="btn btn-secondary" hidden>Choice 4</button>
+        <button id="reload" class="btn btn-success">Start again</button>
     </div>
+    
     <ul id="log"></ul>
     <p>Press the <span style="color:green;text-decoration:bold">Choice 1</span> button to continue with the story as it actually happened, or to "turn the page".</p><br>
 </body>

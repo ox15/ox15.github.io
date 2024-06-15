@@ -15,9 +15,10 @@ function update(link, buttonPressed) {
         console.log(choiceCount - 1 + ") event: " + link);
     }
     $("#log").prepend("<li>" + data[link].content + "</li>");
-    $("#log li").removeClass("active");
-    $("#log li").addClass("inactive");//Make the last one gray
-    $("#log li:first-child").addClass("active")
+    $("#log li").removeClass("alert-primary");
+    $("#log li").addClass("alert alert-secondary");//Make the last one gray
+    $("#log li:first-child").addClass("alert-primary")
+    $("#log li:first-child").removeClass("alert-secondary")
     //Hide all buttons
     document.querySelector("#btn0").hidden = true
     document.querySelector("#btn1").hidden = true
@@ -34,15 +35,15 @@ function update(link, buttonPressed) {
     document.querySelector("#reload").hidden = false
     if (data[link].change === true) {
         console.log("Change to somebody else");
-        $("#log li:first-child").addClass("change");
+        $("#log li:first-child").addClass("alert-info");
     }
     if (data[link].win === true) {
         console.log("You won!");
-        $("#log li:first-child").addClass("win");
+        $("#log li:first-child").addClass("alert-success");
     }
     if (data[link].win === false) {
         console.log("You lost!");
-        $("#log li:first-child").addClass("lose");
+        $("#log li:first-child").addClass("alert-danger");
     }
 }
 $(document).ready(function () {//Manage buttons

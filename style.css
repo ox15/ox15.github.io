@@ -34,3 +34,7 @@ body { /* All pages */
     padding: 10px;
     list-style: none;
 }
+
+li.alert {
+    margin:0;
+}
