@@ -1,0 +1,25 @@
+[{
+    "id" : 0,
+	"content" : "Your brothers are fighting a battle against the Philistines. They tell you that there's a giant on the enemy's side. Everybody else is scared. Should you fight the giant(1), or not? (2)",
+	
+     "links" : [1,2]
+}, {
+    "id" : 1,
+    "content" : "King Saul finds you and asks you to try on his armor. Do it (1) or get your own stuff (2).",
+    "links" : [3,4]
+}, {
+    "id" : 2,
+    "content" : "You go back home and your side loses",
+    "links" : [],
+    "win":false
+}, {
+    "id" : 3,
+    "content" : "Saul's armor doesn't fit.  You take it off.",
+    "links" : [4]
+}, {
+    "id" : 4,
+    "content" : "You fight Goliath and win.",
+    "links" : [],
+    "win":true
+}
+]

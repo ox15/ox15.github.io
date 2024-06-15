@@ -7,3 +7,29 @@ body { /* All pages */
 .answer {
     display: none;
 }
+
+.inactive {
+    background-color: white;
+    color: gray; 
+}
+.active {
+    background-color: #e6ffe6;
+    color: green;
+    border: 1px solid #4caf50;
+}
+.win {
+    background-color: yellow;
+    color: green;
+}
+.lose {
+    background-color: black;
+    color: red;
+}
+
+#log li {
+    border: 1px solid gray;
+    font-weight: bolder;
+    border-radius: 6px;
+    padding: 10px;
+    list-style: none;
+}

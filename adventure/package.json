@@ -1,0 +1,14 @@
+{
+    "name": "jcadcell-adventure",
+    "version": "1.0.0",
+    "description": "Choose your own adventure",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jcadcell/jcadcell.github.io.git"
+    },
+    "dependencies": {
+        "xml2js-parser": "^1.1.1"
+    },
+    "license": "UNLICENSED",
+    "homepage": "https://jcadcell.github.io/"
+}
