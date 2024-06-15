@@ -14,24 +14,24 @@ function update(link, buttonPressed) {
     } else {
         console.log(choiceCount - 1 + ") event: " + link);
     }
-    $("#log").prepend("<li hidden>" + data[link].content + "</li>");
+    $("#log").prepend("<li>" + data[link].content + "</li>");
     $("#log li").removeClass("active");
     $("#log li").addClass("inactive");//Make the last one gray
-    $("#log li:first-child").addClass("active").slideDown("slow");
+    $("#log li:first-child").addClass("active")
     //Hide all buttons
-    $("#btn0").fadeOut(10);
-    $("#btn1").fadeOut(10);
-    $("#btn2").fadeOut(10);
-    $("#btn3").fadeOut(10);
+    document.querySelector("#btn0").hidden = true
+    document.querySelector("#btn1").hidden = true
+    document.querySelector("#btn2").hidden = true
+    document.querySelector("#btn3").hidden = true
     var hasLinks = false;
     for (i = 0; i < data[link].links.length; i++) {
         console.log("  Buttons availible: "+i);
         $("#btn" + i).data("link", data[link].links[i]);
         console.log("    link:"+data[link].links[i]);
-        $("#btn" + i).fadeIn();
+        document.querySelector("#btn"+i).hidden = false
         hasLinks = true;
     }
-    $("#reload").fadeIn();
+    document.querySelector("#reload").hidden = false
     if (data[link].change === true) {
         console.log("Change to somebody else");
         $("#log li:first-child").addClass("change");
@@ -46,12 +46,12 @@ function update(link, buttonPressed) {
     }
 }
 $(document).ready(function () {//Manage buttons
-    'use strict';
-    $("#btn0").prop('hidden', true);
-    $("#btn1").prop('hidden', true);
-    $("#btn2").prop('hidden', true);
-    $("#btn3").prop('hidden', true);
-    $("#reload").prop('hidden', true);
+    console.log("document ready")
+    document.querySelector("#btn0").hidden = true
+    document.querySelector("#btn1").hidden = true
+    document.querySelector("#btn2").hidden = true
+    document.querySelector("#btn3").hidden = true
+    document.querySelector("#reload").hidden = true
     console.log("Please select a story from the dropdown.");
     $("#btn0").click(function () {//update 1
         var link = $("#btn0").data("link");
@@ -86,7 +86,7 @@ function loadStory(filename) {
     $.getJSON(filename + "?version=" + storyVersion, function (json) {
         console.log(filename);
         data = json;
-        $("#log").html("");
+        document.querySelector("#log").innerHTML = ""
         update(0);
         //console.clear();
         

@@ -1,6 +1,6 @@
 [{
     "id" : 0,
-    "content" : "God tells you to fight the Midianites. They've been destroying the Israelites' crops and fields for years, and it's time to take action. Do you do it (1), or are you too chicken? (2)",
+    "content" : "God tells you to fight the Midianites. They've been destroying the Israelites' crops and fields for years, and it's time to take action. Do you do it (1), or are you too scared? (2)",
     "links" : [1,2]
 }, {
     "id" : 1,
@@ -13,7 +13,7 @@
     "win" : false
 }, {
     "id" : 3,
-    "content" : "You ask God for another sign-the reverse of what happened last night. It works. Do you do it (1) or are you still a chicken? (2)",
+    "content" : "You ask God for another sign-the reverse of what happened last night. It works. Do you do it (1) or are you still a scared? (2)",
     "links" : [4,2]
 }, {
     "id" : 4,
@@ -21,7 +21,7 @@
     "links" : [5,8]
 }, {
     "id" : 5,
-    "content" : "Now you're ready to fight with 300 men. Today's the big day. You're going down the mountain to spy on their camp. Are you chicken (1) or do you want to go down alone? (2)",
+    "content" : "Now you're ready to fight with 300 men. Today's the big day. You're going down the mountain to spy on their camp. Are you scared (1) or do you want to go down alone? (2)",
     "links" : [6,7]
 }, {
     "id" : 6,

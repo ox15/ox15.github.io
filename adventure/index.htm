@@ -13,8 +13,11 @@
 </script>
 
     <title>Choose your own adventure</title>
+    <link href="../bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <!--<link href="../bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">-->
+    <!--
+        
+    -->
     <script src="../jquery-3.3.1.min.js"></script>
     <script src="adventure.js"></script>
 </head>
@@ -28,13 +31,14 @@
         <span id="error" hidden></span>
         
             <!--This holds the dropdown links-->
-            <a href="#" onclick="loadStory('gideon.json')">Gideon</a>
-            <a href="#" onclick="loadStory('DavidGoliath.json')">David and Goliath</a>
-            <a href="#" onclick="loadStory('jonah.json')">Jonah</a>
-            <a href="#" onclick="loadStory('genesis.json')">Genesis</a>
+            <button onclick="loadStory('gideon.json')">Gideon</button>
+            <button onclick="loadStory('DavidGoliath.json')">David and Goliath</button>
+            <button onclick="loadStory('jonah.json')">Jonah</button>
+            <button onclick="loadStory('genesis.json')">Genesis</button>
         
     </div>
     <div id="btnHolder">
+        <hr>
         <!--Buttons-->
         <button id="btn0" hidden>Choice 1</button>
         <button id="btn1" hidden>Choice 2</button>

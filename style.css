@@ -16,6 +16,7 @@ body { /* All pages */
     background-color: #e6ffe6;
     color: green;
     border: 1px solid #4caf50;
+    font-weight: bolder;
 }
 .win {
     background-color: yellow;
@@ -28,7 +29,7 @@ body { /* All pages */
 
 #log li {
     border: 1px solid gray;
-    font-weight: bolder;
+    
     border-radius: 6px;
     padding: 10px;
     list-style: none;
