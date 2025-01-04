@@ -36,7 +36,6 @@ class Game(object):
             
         # Pick a random word from the list.
         self.word = random.choice(myList)
-        print("In pickWord, the word is", self.word)
 
     def showScore(self):
         print("Your score is", str(self.score))
@@ -94,14 +93,16 @@ class Game(object):
         self.pickWord()
         # Split the word into a list of letters.
         letterList = list(self.word)
+        letterMatrix = []
         for letter in letterList:
-            print("letter:", letter)
             # Add 2 letters to each item in the list to make the guesses.
             letter = letter + random.choice(self.alphabet) + random.choice(self.alphabet)
             random.shuffle(list(letter))
-            print("new letter:", letter)
+            letterMatrix.append(letter)
+        # Add each letter back into the list
+
         print("The computer has chosen a word with these letters:")
-        for i in letterList:
+        for i in letterMatrix:
             print(i)
         self.guess()
         '''self.word = ""
