@@ -1,0 +1,38 @@
+[{
+    "id" : 0,
+	"content" : "You are starting out on a great adventure. Do you go now (1), stay (2), or do stuff and things (3)?",
+    "links" : [1,2,3]
+}, {
+    "id" : 1,
+	"content" : "You decide to go. There are 2 paths you can take. Do you go to the left (1), or to the right (2)?",
+    "links" : [4,5]
+}, {
+    "id" : 2,
+	"content" : "You stay home. The end.",
+    "links" : [],
+	"win":false
+}, {
+    "id" : 3,
+	"content" : "You missed out on a great opportunity.",
+    "links" : [2]
+}, {
+    "id" : 4,
+	"content" : "You go to the left. There are boulders on one side and a huge cliff on the other. Do you keep going (1) or turn around (2)?",
+    "links" : [6,3]
+}, {
+    "id" : 5,
+	"content" : "You go to the right. It's really easy at first, but you find yourself walking for hours. Eventually, you get to a deep chasm. Do you try to cross it (1) or turn around (2)? ",
+    "links" : [7,3],
+	"win":false
+}, {
+    "id" : 6,
+	"content" : "You keep going on the rocky path. After almost falling down the cliff and narrowly missing a landslide, you get to the end!",
+    "links" : [],
+	"win":true
+}, {
+    "id" : 7,
+	"content" : "You try to cross the chasm with some gear you packed, but the gap is too wide. You are forced to turn around.",
+    "links" : [],
+	"win":false
+}
+]
