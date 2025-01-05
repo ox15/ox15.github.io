@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #game-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        #letter-matrix {
+            font-family: monospace;
+            font-size: 1.2em;
+            white-space: pre;
+        }
+        input, button {
+            padding: 8px;
+            font-size: 1em;
+        }
+        #message {
+            font-weight: bold;
+            color: #333;
+        }
+        #score {
+            font-size: 1.2em;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Letter Guessing Game</h1>
+        <div id="score">Score: 3</div>
+        <div id="length-input">
+            <div>Word length:</div>
+            <input type="number" id="word-length" min="3" max="10" value="4">
+            <button id="start-round">Get a new word</button>
+        </div>
+        <div id="message"></div>
+        <div id="letter-matrix"></div>
+        <div id="guess-input" style="display: none;">
+            <input type="text" id="guess" placeholder="Enter your guess">
+            <button id="submit-guess">Guess</button>
+        </div>
+    </div>
+
+    <script>
+        class Game {
+            constructor() {
+                this.score = 3;
+                this.wordList = [];
+                this.word = '';
+                this.length = 0;
+                this.resetScore = false
+
+                // DOM elements
+                this.messageEl = document.getElementById('message');
+                this.letterMatrixEl = document.getElementById('letter-matrix');
+                this.scoreEl = document.getElementById('score');
+                
+                // Load word list
+                this.loadWordList();
+                
+                // Event listeners
+                document.getElementById('start-round').addEventListener('click', () => {
+                    this.length = parseInt(document.getElementById('word-length').value);
+                    this.startRound();
+                });
+
+                document.getElementById('submit-guess').addEventListener('click', () => {
+                    this.makeGuess();
+                });
+
+                document.getElementById('guess').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.makeGuess();
+                    }
+                });
+
+                // Start the first round automatically
+                this.startRound()
+            }
+
+            async loadWordList() {
+                try {
+                    //const response = await fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt');
+                    const response = await fetch('1000-most-common-words.txt');
+                    const text = await response.text();
+                    this.wordList = text.split('\n').map(word => word.toUpperCase().trim());
+                    this.messageEl.textContent = `${this.wordList.length} words loaded.`;
+                } catch (error) {
+                    this.messageEl.textContent = 'Error loading word list.';
+                }
+            }
+
+            pickWord() {
+                const validWords = this.wordList.filter(word => word.length === this.length);
+                this.word = validWords[Math.floor(Math.random() * validWords.length)];
+            }
+
+            showScore() {
+                this.scoreEl.textContent = `Score: ${this.score}`;
+                if (this.score <= 0) {
+                    this.messageEl.textContent = `Game over! The word was ${this.word}`;
+                    document.getElementById('guess-input').style.display = 'none';
+                    this.resetScore = true;
+                }
+            }
+
+            makeChoices() {
+                const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+                const letterMatrix = [];
+                
+                for (let letter of this.word) {
+                    const choices = letter + 
+                        alphabet[Math.floor(Math.random() * alphabet.length)] +
+                        alphabet[Math.floor(Math.random() * alphabet.length)];
+                    letterMatrix.push([...choices].sort(() => Math.random() - 0.5).join(''));
+                }
+
+                this.letterMatrixEl.textContent = letterMatrix.join('\n');
+            }
+
+            startRound() {
+                this.pickWord();
+                this.makeChoices();
+                this.messageEl.textContent = 'The computer has chosen a word with these letters:';
+                document.getElementById('guess-input').style.display = 'block';
+                document.getElementById('guess').value = '';
+                document.getElementById('guess').focus();
+                this.letterMatrixEl.style.display = "block"
+                if (this.resetScore) {
+                    this.score = 3;
+                    this.resetScore = false;
+                    this.showScore();
+                }
+            }
+
+            makeGuess() {
+                const guessInput = document.getElementById('guess');
+                const guess = guessInput.value.toUpperCase();
+                
+                if (guess === this.word) {
+                    this.score += 1;
+                    this.messageEl.textContent = `Correct! The word was ${this.word}`;
+                    document.getElementById('guess-input').style.display = 'none';
+                    this.letterMatrixEl.style.display = "none"
+                    //startRound();
+                } else if (guess === '.') {
+                    this.messageEl.textContent = `Game ended. The word was ${this.word}. Press "Start Round" to play again.`;
+                    document.getElementById('guess-input').style.display = 'none';
+                    this.letterMatrixEl.style.display = "none"
+                } else {
+                    this.messageEl.textContent = 'No, try again';
+                    this.score -= 1;
+                }
+                
+                this.showScore();
+            }
+            
+
+        }
+
+        // Start the game
+        const game = new Game();
+    </script>
+</body>
+</html>
