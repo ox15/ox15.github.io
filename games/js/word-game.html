@@ -120,9 +120,21 @@
                 const letterMatrix = [];
                 
                 for (let letter of this.word) {
-                    const choices = letter + 
+                    let choices = letter
+                    
+                    let a2 = alphabet.filter(l => l!=letter)
+                    console.log(a2)
+                    letter = a2[Math.floor(Math.random() * a2.length)]
+                    choices += letter
+
+                    a2 = a2.filter(l => l!=letter)
+                    console.log(a2)
+                    letter = a2[Math.floor(Math.random() * a2.length)]
+                    choices += letter
+                    
+                    /*choices = letter + 
                         alphabet[Math.floor(Math.random() * alphabet.length)] +
-                        alphabet[Math.floor(Math.random() * alphabet.length)];
+                        alphabet[Math.floor(Math.random() * alphabet.length)];*/
                     letterMatrix.push([...choices].sort(() => Math.random() - 0.5).join(''));
                 }
 
@@ -160,6 +172,7 @@
                     this.letterMatrixEl.style.display = "none"
                 } else {
                     this.messageEl.textContent = 'No, try again';
+                    document.getElementById('guess').value = '';
                     this.score -= 1;
                 }
                 
