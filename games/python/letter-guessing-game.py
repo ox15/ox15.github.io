@@ -23,7 +23,7 @@ class Game(object):
                 self.wordList.append(line.strip())
             print("  ", len(self.wordList), "words loaded.")
         finally:
-            inFile.close()
+            if inFile: inFile.close()
     
     def pickWord(self):
         # Make a new list of words with the same length as the user's choice.
@@ -105,10 +105,6 @@ class Game(object):
         for i in letterMatrix:
             print(i)
         self.guess()
-        '''self.word = ""
-        self.choices=self.getLetters(self.length)
-        self.choiceList=self.choices.split("\n")[1:]
-        self.makeWord()'''
 
     def play(self):
         while True:

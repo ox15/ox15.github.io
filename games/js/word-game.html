@@ -18,10 +18,10 @@
         }
         #letter-matrix {
             font-family: monospace;
-            font-size: 1.2em;
+            font-size: 1.7em;
             white-space: pre;
         }
-        input, button {
+        input, button, select {
             padding: 8px;
             font-size: 1em;
         }
@@ -42,6 +42,12 @@
         <div id="length-input">
             <div>Word length:</div>
             <input type="number" id="word-length" min="3" max="10" value="4">
+            <select id="difficulty">
+                <option value="1">Easy (1K words)</option>
+                <option value="2">Mid (56K words)</option>
+                <option value="3">Hard (84K words)</option>
+                <option value="4">Crazy (370K words)</option>
+            </select>
             <button id="start-round">Get a new word</button>
         </div>
         <div id="message"></div>
@@ -65,6 +71,7 @@
                 this.messageEl = document.getElementById('message');
                 this.letterMatrixEl = document.getElementById('letter-matrix');
                 this.scoreEl = document.getElementById('score');
+                this.levelEl = document.getElementById('difficulty');
                 
                 // Load word list
                 this.loadWordList();
@@ -92,12 +99,22 @@
             async loadWordList() {
                 try {
                     //const response = await fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt');
-                    const response = await fetch('1000-most-common-words.txt');
+                    // Load different word lists based on selected difficulty
+                    let response = undefined
+                    if (this.levelEl.value == 1) {
+                        response = await fetch('../wordlists/level1.txt');
+                    } else if (this.levelEl.value == 2) {
+                        response = await fetch('../wordlists/level2.txt');
+                    } else if (this.levelEl.value == 3) {
+                        response = await fetch('../wordlists/level3.txt');
+                    } else {
+                        response = await fetch('../wordlists/level4.txt');
+                    }
                     const text = await response.text();
                     this.wordList = text.split('\n').map(word => word.toUpperCase().trim());
                     this.messageEl.textContent = `${this.wordList.length} words loaded.`;
                 } catch (error) {
-                    this.messageEl.textContent = 'Error loading word list.';
+                    this.messageEl.textContent = `Error loading word list. ${error}`;
                 }
             }
 
@@ -142,9 +159,10 @@
             }
 
             startRound() {
+                this.loadWordList(); // in case the user changes the difficulty
                 this.pickWord();
                 this.makeChoices();
-                this.messageEl.textContent = 'The computer has chosen a word with these letters:';
+                this.messageEl.textContent = 'Try to form a word with 1 letter in each row.';
                 document.getElementById('guess-input').style.display = 'block';
                 document.getElementById('guess').value = '';
                 document.getElementById('guess').focus();
