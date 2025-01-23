@@ -28,7 +28,7 @@ def loadWords():
     if words==1:
         WORDLIST_FILENAME = "places-companies.txt"
     elif words==2:
-        WORDLIST_FILENAME = "people.txt"
+        WORDLIST_FILENAME = "names.txt"
     elif words==3:
         WORDLIST_FILENAME = "words.txt"
     else:
