@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Counter</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            color: #333;
+            
+            padding: 50px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        div {
+            margin: 20px 0;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    
+        <h1>Days until Break/Camp</h1>
+        <div><pre>Summer break: <span id="summer"></span> days</pre></div>
+        <div><pre>Pines:        <span id="pines"></span> days</pre></div>
+        <div><pre>Other camps:  <span id="camp"></span> days</pre></div>
+    </pre>
+    <script>
+        const today = new Date();
+        const todayNum = today.getTime();
+        function diff(date) {
+            const dateNum = date.getTime();
+            const timeDiff = dateNum - todayNum;
+            const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            return daysDiff;
+        }
+        function countDays() {
+            const summer = new Date("2025-05-16");
+            const pines = new Date("2025-06-07");
+            const camp = new Date("2025-06-10");
+            summerDiff = diff(summer);
+            pinesDiff = diff(pines);
+            campDiff = diff(camp);
+            document.getElementById("summer").innerText = `${summerDiff}`;
+            document.getElementById("pines").innerText = `${pinesDiff}`;
+            document.getElementById("camp").innerText = `${campDiff}`;
+            if (summerDiff < 0) {
+                document.getElementById("summer").innerText = `Summer break has passed`;
+            }
+        }
+        countDays();
+    </script>
+</body>
+</html>
