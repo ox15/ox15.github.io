@@ -8,6 +8,8 @@ body { /* All pages */
     display: none;
 }
 
+/* Adventure styles (./adventure/index.htm) */
+
 .inactive {
     background-color: white;
     color: gray; 
@@ -26,6 +28,8 @@ body { /* All pages */
     background-color: black;
     color: red;
 }
+
+/* End adventure styles */
 
 #log li {
     border: 1px solid gray;
