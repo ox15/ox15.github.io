@@ -153,12 +153,12 @@
 
             makeChoices() {
                 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-                const letterMatrix = [];
+                this.letterMatrix = [];
                 
                 for (let letter of this.word) {
                     let choices = letter
                     
-                    let a2 = alphabet.filter(l => l!=letter)
+                    let a2 = alphabet.filter(l => l != letter)
                     letter = a2[Math.floor(Math.random() * a2.length)]
                     choices += letter
 
@@ -169,10 +169,11 @@
                     /*choices = letter + 
                         alphabet[Math.floor(Math.random() * alphabet.length)] +
                         alphabet[Math.floor(Math.random() * alphabet.length)];*/
-                    letterMatrix.push([...choices].sort(() => Math.random() - 0.5).join(''));
+                    this.letterMatrix.push([...choices].sort(() => Math.random() - 0.5).join(''));
                 }
 
-                this.letterMatrixEl.textContent = letterMatrix.join('\n');
+                this.letterMatrixEl.textContent = this.letterMatrix.join('\n');
+                console.log(this.letterMatrix)
             }
 
             startRound() {
@@ -190,6 +191,16 @@
                 }
             }
 
+            isValid(guess) {
+                for (let i = 0; i < this.length; i++) {
+                    if (!this.letterMatrix[i].includes(guess[i])) {
+                        // if a letter in the guess isn't in its spot in the letter matrix
+                        return false
+                    }
+                }
+                return true
+            }
+
             makeGuess() {
                 const guessInput = document.getElementById('guess');
                 const guess = guessInput.value.toUpperCase();
@@ -202,17 +213,19 @@
                     this.letterMatrixEl.style.display = "none"
                     document.getElementById('start-round').focus();
                     //startRound();
-                } else {
-                    this.messageEl.textContent = 'No, try again';
+                } else if (this.isValid(guess)) {
+                    this.messageEl.textContent = `${guess.toUpperCase()} is incorrect. Try again.`;
                     this.messageEl.classList = 'alert alert-danger';
                     document.getElementById('guess').value = '';
                     this.score -= 1;
+                } else {
+                    this.messageEl.textContent = `${guess.toUpperCase()} is not a valid guess with these letters (is there a typo?)`;
+                    this.messageEl.classList = 'alert alert-danger';
+                    document.getElementById('guess').value = '';
                 }
                 
                 this.showScore();
             }
-            
-
         }
 
         // Start the game
