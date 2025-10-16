@@ -35,19 +35,26 @@ class Game(object):
                 myList.append(w)
             
         # Pick a random word from the list.
-        self.word = random.choice(myList)
+        try:
+            self.word = random.choice(myList)
+        except IndexError:
+            print("There are no words with", str(self.length), "letters. Please try again.")
+            self.play()
+
 
     def showScore(self):
         print("Your score is", str(self.score))
-        if self.score == 0:
-            self.showWord(True)
 
     def showWord(self, stop=False):
+        """Show the word with a success/fail message. Do not use this in anohter string."""
         if stop:
             print("Game over! The word was", self.word)
+            self.showScore()
             sys.exit()
         else:
             print("Good job! The word was", self.word)
+            self.showScore()
+            self.makeChoices()
 
     def getLetters(self, length):
         """Returns a string of letters used to make a word."""
@@ -60,19 +67,22 @@ class Game(object):
         return self.wordChoices
 
     def guess(self):
-        rightPoints = 1
-        wrongPoints = 1
+        """Ask the user for a guess and validate it."""
+        rightPoints = 3
+        wrongPoints = 1 # decrement by 1
         while True:
             guess = str(input("Enter your guess: ")).upper()
             if guess == self.word:
                 self.score += rightPoints
-                
+                self.showWord(False)
             elif guess==".":
                 self.showWord(True)
             else:
                 print("No, try again")
                 self.score -= wrongPoints
-            self.showScore()
+                self.showScore()
+                if self.score <= 0:
+                    self.showWord(True)
 
     def makeWord(self):
         """This function will not run."""
@@ -108,15 +118,15 @@ class Game(object):
 
     def play(self):
         while True:
-            self.mode = input("Type '.' to quit or press enter to play")
-            if self.mode == ".":
-                print("Your score is", str(self.score))
-                break
-            else:
-                self.length = int(input("How long do you want the word to be? (6 or more will take a while) "))
-                self.stop=False
-                print("Finding a valid "+str(self.length)+"-letter word...")
-                self.makeChoices()
+            #self.mode = input("Type '.' to quit or press enter to play")
+            #if self.mode == ".":
+            #    print("Your score is", str(self.score))
+            #    break
+            #else:
+            self.length = int(input("How long do you want the word to be? (6 or more will take a while) "))
+            self.stop=False
+            print("Finding a valid "+str(self.length)+"-letter word...")
+            self.makeChoices()
 # Play the game
 g=Game()
 g.play()
